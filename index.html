@@ -28,7 +28,7 @@
   <!-- script -->
   <script src="js/common.js" defer></script>
   <script src="js/main.js" defer></script>
-
+</head>
  <body>
  	<div id="wrap">
 		 <!-- 본문 바로가기 영역  -->
@@ -36,7 +36,28 @@
 			<a href="#container">본문 바로가기</a>
 		</div>
 		<!-- // 본문 바로가기 영역  -->
+		 <div class="header-search">
+			<div class="search-total-top">
+                <!-- 검색어 타이틀 -->
+                <div class="search-tit">
+                  <label for="search-total-input-id">검색어를 입력해주세요</label>                  
+                </div>
+                <!-- //검색어 타이틀 -->
 
+                <!-- 검색어 입력 폼 -->
+                <div class="sch-form-wrap vert">
+                  <div class="sch-input">
+                    <input type="text" class="krds-input xlarge" id="search-total-input-id" placeholder="검색어를 입력해주세요.">
+                    <button type="button" class="krds-btn icon xlarge ico-search">
+                      <span class="sr-only">검색</span>
+                      <i class="svg-icon ico-sch"></i>
+                    </button>
+                  </div>
+                  
+                </div>
+                <!-- //검색어 입력 폼 -->
+              </div>
+		</div>
 
 		 <!-- 헤더 영역 -->
 		<header id="header">
@@ -48,21 +69,63 @@
 						<div class="header-util">
 							<ul class="util-list">
 								<li><a href="https://www.koreapost.go.kr" target="_blank" title="클릭시 새창열림">우정사업본부바로가기</a></li>
-								<li></li>
+								<li class="type-toggle">
+									<button type="button" class="toggle-btn">우체국 찾기</button>
+									<div class="toggle-layer">
+										<ul class="link_list">
+											<li><a href="/se/subIndex/1476.do" target="_blank" title="클릭시 새창열림">서울</a></li>
+											<li><a href="/gi/subIndex/1564.do" target="_blank" title="클릭시 새창열림">경인</a></li>
+											<li><a href="/bs/subIndex/1582.do" target="_blank" title="클릭시 새창열림">부산</a></li>
+											<li><a href="/cc/subIndex/1600.do" target="_blank" title="클릭시 새창열림">충청</a></li>
+											<li><a href="/jn/subIndex/1618.do" target="_blank" title="클릭시 새창열림">전남</a></li>
+											<li><a href="/kb/subIndex/1636.do" target="_blank" title="클릭시 새창열림">경북</a></li>
+											<li><a href="/jb/subIndex/1654.do" target="_blank" title="클릭시 새창열림">전북</a></li>
+											<li><a href="/kw/subIndex/1672.do" target="_blank" title="클릭시 새창열림">강원</a></li>
+											<li><a href="/jj/subIndex/1690.do" target="_blank" title="클릭시 새창열림">제주</a></li>
+										</ul>
+									</div>
+								</li>
 							</ul>	
 						</div>
 						<!-- // header-util  -->
 						<div class="logo-area">
-							
-
-						</div>
-						<!-- // logo-area  -->
+							<h1 class="logo">
+								<a href="/se/index.do" target="_top"><span class="sr-only">서울지방우정청</span></a>
+							</h1>
+							<div class="action-list">
+								<a href="#none">통합검색</a>
+							</div>
+           				 </div>
 					</div>
+						<!-- // logo-area  -->
 				</div>
+
 				<!-- // 헤더 상단 -->
 
 				<!-- 메인메뉴 : 데스크탑 -->
 				<nav id="main-menu">
+					<div class="inner">
+						<ul class="gnb-menu">
+							<li>
+								<button class="gnb-btn">소식</button>
+								<div class="gnb-toggle-wrap">
+									<h2 class="sub-title">
+										소식
+										<a href="#" class="krds-btn link basic small">
+											<span class="underline">바로가기</span>
+											<i class="svg-icon ico-angle right"></i>
+										</a>
+									</h2>									
+									<ul >
+										<li><a href="#none">공지사항</a></li>
+										<li><a href="#none">일반공고</a></li>
+										<li><a href="#none">행정정보공개방</a></li>
+										<li><a href="#none">민원신청·칭찬</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
 					
 				</nav>
 				<!-- // 메인메뉴 : 데스크탑 -->
