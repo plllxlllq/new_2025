@@ -2,142 +2,188 @@
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-  <meta name="keywords" content="서울지방우정청, KOREAPOST, Office of postal service" />
-  <meta name="description" content="서울지방우정청의 자료와 최신 정보를 제공한다. 서울시 종로구 종로 6 위치. 우편번호, 등기소포 조회, 우체국 예금, 보험, 소포 신청, 민원 안내. " />
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="keywords" content="서울지방우정청, KOREAPOST, Office of postal service" />
+	<meta name="description"
+		content="서울지방우정청의 자료와 최신 정보를 제공한다. 서울시 종로구 종로 6 위치. 우편번호, 등기소포 조회, 우체국 예금, 보험, 소포 신청, 민원 안내. " />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.koreapost.go.kr/se/index.do" />
-  <meta property="og:title" content="KOREAPOST" />
-  <meta property="og:description" content="서울지방우정청의 자료와 최신 정보를 제공한다. 서울시 종로구 종로 6 위치. 우편번호, 등기소포 조회, 우체국 예금, 보험, 소포 신청, 민원 안내." />
-  <meta property="og:image" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.koreapost.go.kr/se/index.do" />
+	<meta property="og:title" content="KOREAPOST" />
+	<meta property="og:description"
+		content="서울지방우정청의 자료와 최신 정보를 제공한다. 서울시 종로구 종로 6 위치. 우편번호, 등기소포 조회, 우체국 예금, 보험, 소포 신청, 민원 안내." />
+	<meta property="og:image" content="" />
 
-  <meta name="format-detection" content="telephone=no" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_180.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon_512.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon_192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_32.png" />
-  <title>서울지방우정청</title>
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_180.png" />
+	<link rel="icon" type="image/png" sizes="512x512" href="images/favicon_512.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="images/favicon_192.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_32.png" />
+	<title>서울지방우정청</title>
 
-  <!-- css -->
-  <link href="css/common.css" type="text/css" rel="stylesheet" />
-  <link href="css/layout.css" type="text/css" rel="stylesheet" />
- <link href="css/component/output.css" type="text/css" rel="stylesheet" /> 
-  <link href="css/component/component.css" type="text/css" rel="stylesheet" />
-  <link href="css/swiper-bundle.min.css" type="text/css" rel="stylesheet" />
+	<!-- css -->
+	<link href="css/common.css" type="text/css" rel="stylesheet" />
+	<link href="css/swiper-bundle.min.css" type="text/css" rel="stylesheet" />
+	<link href="css/layout.css" type="text/css" rel="stylesheet" />
 
-  <!-- script -->
-	<script src="js/swiper-bundle.min.js" ></script> 
-	<script src="js/ui-script.js" ></script>
-	<script src="js/common.js" ></script>
-    
+	<!-- script -->
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper-bundle.min.js"></script>
+	<script src="js/common.js"></script>
+
+
 </head>
- <body>
- 	<div id="wrap">
-		 <!-- 본문 바로가기 영역  -->
+
+<body>
+	<div id="wrap">
+		<!-- 본문 바로가기 영역  -->
 		<div id="skipNavi">
 			<a href="#container">본문 바로가기</a>
 		</div>
 		<!-- // 본문 바로가기 영역  -->
-		 <div class="header-search">
-			<div class="search-total-top">
-                <!-- 검색어 타이틀 -->
-                <div class="search-tit">
-                  <label for="search-total-input-id">검색어를 입력해주세요</label>                  
-                </div>
-                <!-- //검색어 타이틀 -->
 
-                <!-- 검색어 입력 폼 -->
-                <div class="sch-form-wrap vert">
-                  <div class="sch-input">
-                    <input type="text" class="krds-input xlarge" id="search-total-input-id" placeholder="검색어를 입력해주세요.">
-                    <button type="button" class="krds-btn icon xlarge ico-search">
-                      <span class="sr-only">검색</span>
-                      <i class="svg-icon ico-sch"></i>
-                    </button>
-                  </div>
-                  
-                </div>
-                <!-- //검색어 입력 폼 -->
-              </div>
-		</div>
-
-		 <!-- 헤더 영역 -->
+		<!-- 헤더 영역 -->
 		<header id="header">
 			<!-- 헤더 컨텐츠 -->
 			<div class="main-header">
 				<!-- // 헤더 상단 -->
 				<div class="header-top">
 					<div class="inner">
+
 						<div class="header-util">
 							<ul class="util-list">
-								<li><a href="https://www.koreapost.go.kr" target="_blank" title="클릭시 새창열림">우정사업본부바로가기</a></li>
-								<li class="type-toggle">
-									<button type="button" class="toggle-btn">우체국 찾기</button>
-									<div class="toggle-layer">
+								<li>
+									<a href="https://www.koreapost.go.kr" target="_blank" title="클릭시 새창열림"
+										class="btn sm text">우정사업본부바로가기 <i class="icon ico-go"></i></a>
+								</li>
+							</ul>
+
+							<ul class="util-list">
+								<li class="drop-wrap ">
+									<button type="button" class="btn sm text drop-btn"> <i class="icon ico-post"></i>
+										우체국 찾기 <i class="icon ico-toggle"></i> </button>
+									<div class="drop-menu">
 										<ul class="link_list">
-											<li><a href="/se/subIndex/1476.do" target="_blank" title="클릭시 새창열림">서울</a></li>
-											<li><a href="/gi/subIndex/1564.do" target="_blank" title="클릭시 새창열림">경인</a></li>
-											<li><a href="/bs/subIndex/1582.do" target="_blank" title="클릭시 새창열림">부산</a></li>
-											<li><a href="/cc/subIndex/1600.do" target="_blank" title="클릭시 새창열림">충청</a></li>
-											<li><a href="/jn/subIndex/1618.do" target="_blank" title="클릭시 새창열림">전남</a></li>
-											<li><a href="/kb/subIndex/1636.do" target="_blank" title="클릭시 새창열림">경북</a></li>
-											<li><a href="/jb/subIndex/1654.do" target="_blank" title="클릭시 새창열림">전북</a></li>
-											<li><a href="/kw/subIndex/1672.do" target="_blank" title="클릭시 새창열림">강원</a></li>
-											<li><a href="/jj/subIndex/1690.do" target="_blank" title="클릭시 새창열림">제주</a></li>
+											<li><a href="/se/subIndex/1476.do" target="_blank" title="클릭시 새창열림">서울 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/gi/subIndex/1564.do" target="_blank" title="클릭시 새창열림">경인 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/bs/subIndex/1582.do" target="_blank" title="클릭시 새창열림">부산 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/cc/subIndex/1600.do" target="_blank" title="클릭시 새창열림">충청 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/jn/subIndex/1618.do" target="_blank" title="클릭시 새창열림">전남 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/kb/subIndex/1636.do" target="_blank" title="클릭시 새창열림">경북 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/jb/subIndex/1654.do" target="_blank" title="클릭시 새창열림">전북 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/kw/subIndex/1672.do" target="_blank" title="클릭시 새창열림">강원 <i
+														class="icon ico-go"></i></a>
+											</li>
+											<li><a href="/jj/subIndex/1690.do" target="_blank" title="클릭시 새창열림">제주 <i
+														class="icon ico-go"></i></a>
+											</li>
 										</ul>
 									</div>
 								</li>
-							</ul>	
+							</ul>
 						</div>
 						<!-- // header-util  -->
 						<div class="logo-area">
 							<h1 class="logo">
 								<a href="/se/index.do" target="_top"><span class="sr-only">서울지방우정청</span></a>
 							</h1>
-							<div class="action-list">
-								<a href="#none">통합검색</a>
+							<div class="header-search">
+								<div class="sch-input">
+									<input type="text" class="input " placeholder="검색어를 입력해주세요." value=""
+										title="검색어 입력">
+									<button type="button" class="btn icon md ico-search">
+										<span class="sr-only">검색</span>
+										<i class="icon ico-sch"></i>
+									</button>
+								</div>
 							</div>
-           				 </div>
+							<button type="button" class="btn-navi all" aria-controls="mobile-nav">전체메뉴</button>
+							<!-- // header-search  -->
+						</div>
 					</div>
-						<!-- // logo-area  -->
+					<!-- // logo-area  -->
 				</div>
 
 				<!-- // 헤더 상단 -->
 
 				<!-- 메인메뉴 : 데스크탑 -->
-				<nav class="krds-main-menu sample">
+				<nav class="main-menu">
 					<div class="inner">
 						<ul class="gnb-menu">
 							<li>
-								<button type="button" class="gnb-main-trigger active" data-trigger="gnb">소식</button>
+								<button type="button" class="gnb-main-trigger">소식</button>
 								<!-- gnb-toggle-wrap -->
-								<div class="gnb-toggle-wrap is-open">
-									<!-- gnb-main-list -->
-									<div class="gnb-main-list" data-has-submenu="true">	
-											<!-- gnb-sub-list -->
-											<div class="gnb-sub-list active">
-												<div class="gnb-sub-content">
-													<h2 class="sub-title">
-														소식
-														<a href="#" class="krds-btn link basic small">
-															<span class="underline">바로가기</span>
-															<i class="svg-icon ico-angle right"></i>
-														</a>
-													</h2>
-													<ul>
-														<li><a href="#">공지사항</a></li>
-														<li><a href="#">일반공고</a></li>
-														<li><a href="#">행정정보공개방</a></li>
-														<li><a href="#">민원신청·칭찬</a></li>														
-													</ul>
-												</div>
-											</div>
-											<!-- //gnb-sub-list -->
+								<div class="gnb-toggle-wrap">
+									<h2 class="sub-title">소식</h2>
+									<ul>
+										<li><a href="#"><span class="text">공지사항</span></a></li>
+										<li><a href="#"><span class="text">일반공고</span></a></li>
+										<li><a href="#"><span class="text">행정정보공개방</span></a></li>
+										<li><a href="#"><span class="text">민원신청·칭찬</span></a></li>
+									</ul>
+								</div>
+								<!-- //gnb-toggle-wrap -->
+							</li>
+
+							<li>
+								<button type="button" class="gnb-main-trigger ">채용</button>
+								<!-- gnb-toggle-wrap -->
+								<div class="gnb-toggle-wrap">
+									<h2 class="sub-title">채용</h2>
+									<ul>
+										<li><a href="#"><span class="text">채용공고</span></a></li>
+										<li><a href="#"><span class="text">집배원 채용공고</span></a></li>
+										<li><a href="#"><span class="text">시험자료</span></a></li>
+										<li><a href="#"><span class="text">FAQ</span></a></li>
+										<li><a href="#"><span class="text">채용문의</span></a></li>
+										<li><a href="#"><span class="text">자료실</span></a></li>
+									</ul>
+								</div>
+								<!-- //gnb-toggle-wrap -->
+							</li>
+
+							<li>
+								<button type="button" class="gnb-main-trigger ">조직</button>
+								<!-- gnb-toggle-wrap -->
+								<div class="gnb-toggle-wrap ">
+									<h2 class="sub-title">조직</h2>
+									<ul>
+										<li><a href="#"><span class="text">조직/부서안내</span></a></li>
+										<li><a href="#"><span class="text">총괄우체국</span></a></li>
+									</ul>
+								</div>
+								<!-- //gnb-toggle-wrap -->
+							</li>
+
+							<li>
+								<button type="button" class="gnb-main-trigger ">소개</button>
+								<!-- gnb-toggle-wrap -->
+								<div class="gnb-toggle-wrap ">
+									<div class="gnb-sub-content">
+										<h2 class="sub-title">소개</h2>
+										<ul>
+											<li><a href="#"><span class="text">지방우정청소개</span></a></li>
+											<li><a href="#"><span class="text">기관장소개</span></a></li>
+											<li><a href="#"><span class="text">찾아오시는길</span></a></li>
+										</ul>
 									</div>
-									<!-- //gnb-main-list -->
 								</div>
 								<!-- //gnb-toggle-wrap -->
 							</li>
@@ -145,30 +191,759 @@
 					</div>
 				</nav>
 
+
 				<!-- // 메인메뉴 : 데스크탑 -->
 			</div>
 			<!-- // 헤더 컨텐츠 -->
-
 			<!-- 메인메뉴 : 모바일 -->
-			<div id="mobile-menu">
-				
+			<div id="mobile-nav" class="main-menu-mobile">
+				<div class="gnb-wrap">
+					<!-- gnb-header -->
+					<div class="gnb-header">
+						<div class="gnb_util">
+							<ul class="util-list">
+								<li><a href="https://www.koreapost.go.kr" target="_blank"
+										title="클릭시 새창열림">우정사업본부바로가기</a>
+								</li>
+								<li class="type-toggle">
+									<button type="button" class="toggle-btn">우체국 찾기</button>
+									<div class="toggle-layer">
+										<ul class="link_list">
+											<li><a href="/se/subIndex/1476.do" target="_blank" title="클릭시 새창열림">서울</a>
+											</li>
+											<li><a href="/gi/subIndex/1564.do" target="_blank" title="클릭시 새창열림">경인</a>
+											</li>
+											<li><a href="/bs/subIndex/1582.do" target="_blank" title="클릭시 새창열림">부산</a>
+											</li>
+											<li><a href="/cc/subIndex/1600.do" target="_blank" title="클릭시 새창열림">충청</a>
+											</li>
+											<li><a href="/jn/subIndex/1618.do" target="_blank" title="클릭시 새창열림">전남</a>
+											</li>
+											<li><a href="/kb/subIndex/1636.do" target="_blank" title="클릭시 새창열림">경북</a>
+											</li>
+											<li><a href="/jb/subIndex/1654.do" target="_blank" title="클릭시 새창열림">전북</a>
+											</li>
+											<li><a href="/kw/subIndex/1672.do" target="_blank" title="클릭시 새창열림">강원</a>
+											</li>
+											<li><a href="/jj/subIndex/1690.do" target="_blank" title="클릭시 새창열림">제주</a>
+											</li>
+										</ul>
+										<!-- // link_list -->
+									</div>
+								</li>
+							</ul>
+							<!-- // util-list -->
+							<div class="nav-search">
+								<div class="sch-input">
+									<input type="text" class="input " placeholder="검색어를 입력해주세요." value=""
+										title="검색어 입력">
+									<button type="button" class="krds-btn  icon ico-search">
+										<span class="sr-only">검색</span>
+										<i class="icon ico-sch"></i>
+									</button>
+								</div>
+							</div>
+							<!-- // nav-search  -->
+						</div>
+						<!-- // gnb_util -->
+					</div>
+					<!-- gnb-body -->
+					<div class="gnb-body">
+						<!-- gnb-menu -->
+						<div class="gnb-menu">
+							<div class="menu-wrap">
+								<ul>
+									<li>
+										<a href="#mGnb-anchor1" class="gnb-main-trigger">소식</a>
+									</li>
+									<li>
+										<a href="#mGnb-anchor2" class="gnb-main-trigger">채용</a>
+									</li>
+									<li>
+										<a href="#mGnb-anchor3" class="gnb-main-trigger">조직</a>
+									</li>
+									<li>
+										<a href="#mGnb-anchor4" class="gnb-main-trigger">소개</a>
+									</li>
+								</ul>
+							</div>
+							<div class="submenu-wrap">
+								<div class="gnb-sub-list" id="mGnb-anchor1">
+									<h2 class="sub-title">소식</h2>
+									<ul>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+									</ul>
+								</div>
+								<div class="gnb-sub-list" id="mGnb-anchor2">
+									<h2 class="sub-title">채용</h2>
+									<ul>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+									</ul>
+								</div>
+								<div class="gnb-sub-list" id="mGnb-anchor3">
+									<h2 class="sub-title">조직</h2>
+									<ul>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+									</ul>
+								</div>
+								<div class="gnb-sub-list" id="mGnb-anchor4">
+									<h2 class="sub-title">소개</h2>
+									<ul>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+										<li><a href="#" class="gnb-sub-trigger">2Depth</a></li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<!-- //gnb-menu -->
+
+					</div>
+					<!-- //gnb-body -->
+					<!-- gnb-close -->
+					<button type="button" class="btn medium icon" id="close-nav">
+						<span class="sr-only">전체메뉴 닫기</span>
+						<i class="svg-icon ico-popup-close"></i>
+					</button>
+					<!-- //gnb-close -->
+				</div>
+
 			</div>
 			<!-- // 메인메뉴 : 모바일 -->
 		</header>
 		<!-- // 헤더 영역  -->
 
 		<!-- 컨테이너 영역 -->
-		<div id="container" class="main-container">
-		
+		<div id="container">
+			<div class="main-vb-wrap">
+				<div class="inner">
+					<div class="main-box-responsive">
+						<div class="main-visual d-auto">
+							<div class="in">
+								<div class="mv-card">
+									<div class="vban-text">
+										<p>국민과 함께 </p>
+										<p>새롭게 거듭나는</p>
+										<p class="text-primary">대한민국 우정</p>
+									</div>
+									<div class="img">
+										<img src="images/main_visual_img01.png" alt="">
+									</div>
+								</div>
+								<div class="main-d-links d-row">
+									<a href="#" class="btn md text">기관장 소개 <i class="icon ico-more"></i></a>
+									<a href="#" class="btn md text">조직/부서 안내 <i class="icon ico-more"></i></a>
+									<a href="#" class="btn md text" target="_blank" title="클릭시 새창열림">총괄우체국 <i
+											class="icon ico-go"></i></a>
+									<a href="#" class="btn md text" target="_blank" title="클릭시 새창열림">우체국/우체통 찾기 <i
+											class="icon ico-go"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="d-fix">
+							<div class="in">
+								<div class="main-tit-wrap">
+									<h3 class="tit"><span class="text-primary">자주찾는</span> 서비스</h3>
+								</div>
+
+								<ul class="quick-link">
+									<li>
+										<a href="#">
+											<span class="ico i1"></span>
+											<p class="text">배송조회</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="ico i2"></span>
+											<p class="text">우편번호찾기</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="ico i3"></span>
+											<p class="text">우편요금안내</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="ico i4"></span>
+											<p class="text">우체국쇼핑</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="ico i5"></span>
+											<p class="text">우편서비스</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="ico i6"></span>
+											<p class="text">우체국금융</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // 메인 비주얼 영역 -->
+			<div class="main-sec-t">
+				<div class="inner">
+					<div class="card">
+						<div class="main-tit-wrap">
+							<h2 class="tit">업무시간안내</h2>
+							<div class="desc">토, 일, 공휴일 휴무</div>
+						</div>
+						<ul class="biz-time">
+							<li>
+								<span class="ico i1"></span>
+								<div class="text">
+									<p><span class="point">금융</span> <span>09:00 - 16:30</span></p>
+								</div>
+							</li>
+							<li>
+								<span class="ico i2"></span>
+								<div class="text">
+									<p><span class="point">우편</span> <span>09:00 - 18:00</span></p>
+								</div>
+								<div class="help-info">
+									<span class="ico"></span>
+									<span class="text">오늘출발 우편물 접수 마감시간 방문우체국 문의</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- // 업무시간안내 -->
+			<div class="main-sec-t">
+				<div class="inner">
+					<div class="main-box-responsive">
+						<div class="d-auto">
+							<div class="main-tit-wrap">
+								<h2 class="tit">새소식</h2>
+							</div>
+							<div class="tab-area layer">
+								<div class="tab line">
+									<ul role="tablist">
+										<li id="newsTab01" aria-selected="true" aria-controls="newsTabpanel01"
+											class="active">
+											<button type="button" class="btn-tab">공지<i class="sr-only created">
+													선택됨</i></button>
+										</li>
+										<li id="newsTab02" aria-selected="false" aria-controls="newsTabpanel02">
+											<button type="button" class="btn-tab">공고</button>
+										</li>
+										<li id="newsTab03" aria-selected="false" aria-controls="newsTabpanel03">
+											<button type="button" class="btn-tab">채용</button>
+										</li>
+										<li id="newsTab04" aria-selected="false" aria-controls="newsTabpanel04">
+											<button type="button" class="btn-tab">집배원 채용</button>
+										</li>
+									</ul>
+									<a href="#none" class="more" title="공지사항 더보기"><i class="sr-only">공지 더보기</i></a>
+								</div>
+								<div class="tab-conts-wrap">
+									<section id="newsTabpanel01" role="tabpanel" aria-labelledby="newsTab01"
+										class="tab-conts active">
+										<h3 class="sr-only">공지</h3>
+										<ul class="news-tbl-list">
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+										</ul>
+										<a href="#" class="more" style="display: none;">공지 더보기</a>
+									</section>
+									<!-- // newsTabpanel01 -->
+									<section id="newsTabpanel02" role="tabpanel" aria-labelledby="newsTab02"
+										class="tab-conts">
+										<h3 class="sr-only">공고</h3>
+										<ul class="news-tbl-list">
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+										</ul>
+										<a href="#" class="more" style="display: none;">공고 더보기</a>
+									</section>
+									<!-- // newsTabpanel02 -->
+
+									<section id="newsTabpanel03" role="tabpanel" aria-labelledby="newsTab03"
+										class="tab-conts">
+										<h3 class="sr-only">채용</h3>
+										<ul class="news-tbl-list">
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+										</ul>
+										<a href="#" class="more" style="display: none;">공고 더보기</a>
+									</section>
+									<!-- // newsTabpanel03 -->
+
+									<section id="newsTabpanel04" role="tabpanel" aria-labelledby="newsTab04"
+										class="tab-conts">
+										<h3 class="sr-only">집배원 채용</h3>
+										<ul class="news-tbl-list">
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+											<li>
+												<a href="#" class="tit">
+													서울도봉우체국 반송불능(유가물) 보관 공고
+												</a>
+												<span class="date">2025-07-14</span>
+											</li>
+										</ul>
+										<a href="#" class="more" style="display: none;">공고 더보기</a>
+									</section>
+									<!-- // newsTabpanel04 -->
+								</div>
+							</div>
+							<!-- // tab-area -->
+
+						</div>
+						<!-- // 새소식 -->
+
+						<div class="d-auto">
+							<div class="main-tit-wrap">
+								<h2 class="tit">알림</h2>
+							</div>
+							<div class="in">
+								<div class="main-d-ban-swiper">
+									<ul>
+										<li>
+											<a tabindex="-1"
+												href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094028.do"
+												target="_blank" title="새 창 열기">
+												<img src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250915163851008529.png"
+													alt="[지방세 납부 경품 이벤트]
+													잇다뱅킹으로 지방세 납부하세 시즌2
+
+													이벤트 기간 : 2025.7월 ~ 9월(월별 진행)
+													3회차: 2025.9.16. ~ 9.30.
+													*사용된 이미지는 생성형 AI(ChatGPT)를 통해 제작되었습니다.">
+											</a>
+										</li>
+										<li>
+											<a tabindex="-1"
+												href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094028.do"
+												target="_blank" title="새 창 열기">
+												<img src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250915163851008529.png"
+													alt="[지방세 납부 경품 이벤트]
+													잇다뱅킹으로 지방세 납부하세 시즌2
+
+													이벤트 기간 : 2025.7월 ~ 9월(월별 진행)
+													3회차: 2025.9.16. ~ 9.30.
+													*사용된 이미지는 생성형 AI(ChatGPT)를 통해 제작되었습니다.">
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="swiper-indicator">
+									<div
+										class="swiper-pagination swiper-pagination-fraction swiper-pagination-horizontal">
+										<span class="swiper-pagination-current">1</span> /
+										<span class="swiper-pagination-total">2</span>
+									</div>
+									<div class="swiper-controller">
+										<button type="button" class="swiper-button-play" style="display: none;">
+											<span class="sr-only">슬라이드 재생</span>
+										</button>
+										<button type="button" class="swiper-button-stop">
+											<span class="sr-only">슬라이드 멈춤</span>
+										</button>
+									</div>
+									<div class="swiper-navigation">
+										<button type="button" class="swiper-button-prev">
+											<span class="sr-only">이전</span>
+										</button>
+										<button type="button" class="swiper-button-next">
+											<span class="sr-only">다음</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // 알림 -->
+					</div>
+					<!-- // main-box-responsive -->
+				</div>
+				<!-- // inner -->
+			</div>
+			<!-- // 소식 -->
+
+			<div class="main-sec-t post-list-wrap">
+				<div class="inner">
+					<div class="main-tit-wrap">
+						<h2 class="tit">지방우정청 바로가기</h2>
+					</div>
+					<!-- tab -->
+					<div class="tab-area layer ">
+						<!-- tab list -->
+						<div class="tab line full">
+							<ul role="tablist">
+								<li id="tab_postdep1_01" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_01" class="active">
+									<button type="button" class="btn-tab">서울지방우정청<i class="sr-only created">
+											선택됨</i></button>
+								</li>
+								<li id="tab_postdep1_02" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_02">
+									<button type="button" class="btn-tab">경인지방우정청</button>
+								</li>
+								<li id="tab_postdep1_03" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_03">
+									<button type="button" class="btn-tab">부산지방우정청</button>
+								</li>
+								<li id="tab_postdep1_04" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_04">
+									<button type="button" class="btn-tab">충청지방우정청</button>
+								</li>
+								<li id="tab_postdep1_05" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_05">
+									<button type="button" class="btn-tab">전남지방우정청</button>
+								</li>
+								<li id="tab_postdep1_06" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_06">
+									<button type="button" class="btn-tab">경북지방우정청</button>
+								</li>
+								<li id="tab_postdep1_07" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_07">
+									<button type="button" class="btn-tab">전북지방우정청</button>
+								</li>
+								<li id="tab_postdep1_08" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_08">
+									<button type="button" class="btn-tab">강원지방우정청</button>
+								</li>
+								<li id="tab_postdep1_09" role="tab" aria-selected="true"
+									aria-controls="panel_postdep1_09">
+									<button type="button" class="btn-tab">제주지방우정청</button>
+								</li>
+							</ul>
+						</div>
+						<!-- //tab list -->
+
+						<!-- tab contents -->
+						<div class="tab-conts-wrap">
+							<section id="panel_postdep1_01" aria-labelledby="tab_postdep1_01" class="tab-conts active"
+								data-quick-nav="false">
+								<!-- tab -->
+								<div class="tab-area layer ">
+									<!-- tab list -->
+									<div class="tab line full">
+										<div class="main-tit-wrap">
+											<h3>
+												<a target="_blank" href="https://www.koreapost.go.kr/se/index.do"
+													title="클릭시 새창열림">
+													<h3><span class="text">서울지방우정청</span> <span class="ico"></span></h3>
+												</a>
+											</h3>
+										</div>
+										<ul>
+											<li id="tab_postdep2_01" role="tab" aria-selected="true"
+												aria-controls="panel_postdep2_01">
+												<button type="button" class="btn-tab">광화문우체국</button>
+												<a href="/110/index.do" target="_blank" title="클릭시 새창열림"><span
+														class="sr-only">광화문우체국 홈페이지바로가기</span></a>
+											</li>
+											<li id="tab_postdep2_02" role="tab" aria-selected="true"
+												aria-controls="panel_postdep2_02">
+												<button type="button" class="btn-tab">서울강남우체국</button>
+												<a href="/110/index.do" target="_blank" title="클릭시 새창열림"><span
+														class="sr-only">서울강남우체국 홈페이지바로가기</span></a>
+											</li>
+											<li id="tab_postdep2_03" role="tab" aria-selected="true"
+												aria-controls="panel_postdep2_03">
+												<button type="button" class="btn-tab">서울강남우체국</button>
+												<a href="/110/index.do" target="_blank" title="클릭시 새창열림"><span
+														class="sr-only">서울강남우체국 홈페이지바로가기</span></a>
+											</li>
+										</ul>
+									</div>
+									<!-- //tab list -->
+									<!-- tab contents -->
+									<div class="tab-conts-wrap">
+										<section id="panel_postdep2_01" aria-labelledby="tab_postdep2_01"
+											class="tab-conts active" data-quick-nav="false">
+											<div class="main-tit-wrap">
+												<h4><span class="ico"></span>
+													<p class="text"><span class="text-deco">광화문우체국</span> 관할 우체국</p>
+												</h4>
+											</div>
+											<div class="post-list scroll-wrap">
+												<div class="in">
+													<ul class="structured-list">
+														<li class="structured-item">
+															<div class="card-top">
+																<div class="title-wrap">
+																	<div class="tit">광화문우체국</div>
+																	<span class="badge bg-light-primary">금융 미취급</span>
+																</div>
+																<div class="desc">
+																	<span class="zip-code">03187</span>
+																	<span class="addr">서울 종로구 자하문로 30 (통의동) </span>
+																</div>
+															</div>
+															<!-- //card-top -->
+															<div class="card-body">
+																<ul class="info-list decimal" role="list">
+																	<li role="listitem">
+																		<strong>전화</strong>
+																		02-3703-9011
+																	</li>
+																	<li role="listitem">
+																		<strong>팩스</strong>
+																		0505-005-1121
+																	</li>
+																	<li role="listitem">
+																		<strong>점심시간</strong>
+																		없음
+																	</li>
+																	<li role="listitem">
+																		<strong>오늘출발 우편마감</strong>
+																		오늘출발 우편마감
+																	</li>
+																</ul>
+															</div>
+															<!-- //card-body -->
+														</li>
+														<!-- //structured-item -->
+														<li class="structured-item">
+															<div class="card-top">
+																<div class="title-wrap">
+																	<div class="tit">광화문우체국</div>
+
+																</div>
+																<div class="desc">
+																	<span class="zip-code">03187</span>
+																	<span class="addr">서울 종로구 자하문로 30 (통의동) </span>
+																</div>
+															</div>
+															<!-- //card-top -->
+															<div class="card-body">
+																<ul class="info-list decimal" role="list">
+																	<li role="listitem">
+																		<strong>전화</strong>
+																		02-3703-9011
+																	</li>
+																	<li role="listitem">
+																		<strong>팩스</strong>
+																		0505-005-1121
+																	</li>
+																	<li role="listitem">
+																		<strong>점심시간</strong>
+																		없음
+																	</li>
+																	<li role="listitem">
+																		<strong>오늘출발 우편마감</strong>
+																		오늘출발 우편마감
+																	</li>
+																</ul>
+															</div>
+															<!-- //card-body -->
+														</li>
+														<!-- //structured-item -->
+													</ul>
+													<!-- //structured-list -->
+												</div>
+												<!-- //in -->
+											</div>
+											<!-- //post-list -->
+										</section>
+										<!-- //panel_postdep2_01 -->
+
+
+									</div>
+									<!-- //tab contents -->
+
+
+								</div>
+								<!-- //tab -->
+
+							</section>
+						</div>
+						<!-- //tab contents -->
+
+
+					</div>
+					<!-- //tab -->
+				</div>
+				<!-- // inner -->
+			</div>
+			<!-- // 지방우정청 바로가기 -->
+
 		</div>
 		<!-- //컨테이너 영역 -->
 
 		<!-- 푸터 영역 -->
 		<footer id="footer">
-			
+			<!-- foot-quick -->
+			<div class="foot-quick">
+				<div class="inner">
+					<ul class="link-list">
+						<li><a class="btn md text" href="/se/subIndex/4345.do"><strong>개인정보처리방침</strong></a></li>
+						<li><a class="btn md text" href="/se/subIndex/4377.do"><strong>영상정보처리방침</strong></a></li>
+						<li><a class="btn md text" href="/kpost/subIndex/184.do" target="_blank">이용약관</a></li>
+						<li><a class="btn md text" href="/kpost/subIndex/190.do" target="_blank">뷰어다운로드</a></li>
+						<li><a class="btn md text" href="/kpost/subIndex/192.do" target="_blank">우정총국</a></li>
+					</ul>
+					<ul class="link-sns">
+						<li><a class="btn xlg icon border" href="https://www.instagram.com/korea.post" target="_blank"
+								title="새창열림"><span class="sr-only">인스타그램</span><i class="icon ico-instagram"></i></a>
+						</li>
+						<li><a class="btn xlg icon border" href="https://www.facebook.com/epost.kr" target="_blank"
+								title="새창열림"><span class="sr-only">페이스북</span><i class="icon ico-facebook"></i></a></li>
+						<li><a class="btn xlg icon border" href="https://blog.naver.com/kpostbank" target="_blank"
+								title="새창열림"><span class="sr-only">블로그</span><i class="icon ico-blog"></i></a></li>
+						<li><a class="btn xlg icon border" href="https://www.youtube.com/user/ekoreapost"
+								target="_blank" title="새창열림"><span class="sr-only">유튜브</span><i
+									class="icon ico-youtube"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //foot-quick -->
+			<!-- inner -->
+			<div class="inner">
+
+				<div class="f-cnt">
+					<div class="f-info-wrap">
+						<div class="f-logo">
+							<span class="sr-only">서울지방우정청</span>
+						</div>
+						<div class="f-info">
+							<p class="info-addr">(03187) 서울 종로구 종로 6(서린동)</p>
+							<ul class="info-cs">
+								<li>
+									<strong class="key-info">전화 <span>02-6967-9116 </span></strong>
+									<span class="more-info">(평일 09:00~18:00)</span>
+								</li>
+								<li>
+									<strong class="key-info">당직실  <span>02-6967-9050</span></strong>
+									<span class="more-info">(평일 야간, 공휴일)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="info-cs-g">
+						<div class="tit-s">
+							<strong>고객센터 </strong>
+							<span>(발신자부담)</span>
+						</div>
+						<ul class="info-cs">
+							<li>
+								<strong class="key-info">우편 <span>1588-1300</span></strong>
+							</li>
+							<li>
+								<strong class="key-info">예금 <span>1599-1900, 1588-1900</span></strong>
+							</li>
+							<li>
+								<strong class="key-info">보험 <span>1599-0100</span></strong>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="f-btm">
+					<div class="f-copy">
+						<p>Copyright. KOREAPOST(Office of postal service) All rights reserved.</p>
+						<p>해당 웹사이트의 모든 자료는 우정사업본부의 허락 없이 무단으로 복제, 배포 사용할 수 없습니다.</p>
+					</div>
+					<img src="images/foot_img_ncsi.jpg" alt="국가고객만족도 수상마크">
+
+				</div>
+			</div>
+			<!-- //inner -->
 		</footer>
 		<!-- //푸터 영역 -->
 	</div>
 	<!-- // wrap  -->
- </body>
+
+</body>
+
 </html>
