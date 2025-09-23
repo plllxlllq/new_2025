@@ -59,23 +59,36 @@ const scrollManager = {
 // common
 const common = {
   focusTrap(trap) {
-    const focusableElements = trap.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
+    const focusableElements = trap.querySelectorAll(
+      `a, button, [tabindex="0"], input, textarea, select`
+    );
 
     if (!focusableElements.length) return;
 
     const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    const lastFocusableElement =
+      focusableElements[focusableElements.length - 1];
 
     trap.addEventListener("keydown", (event) => {
       if (event.key === "Tab") {
-        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+        if (
+          event.shiftKey &&
+          document.activeElement === firstFocusableElement
+        ) {
           event.preventDefault();
           lastFocusableElement.focus();
-        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+        } else if (
+          !event.shiftKey &&
+          document.activeElement === lastFocusableElement
+        ) {
           event.preventDefault();
           firstFocusableElement.focus();
           // 모달 오픈 후 첫 초점 역방향 제어(modal-content가 첫초점이 아니면 사용 안해도 됨)
-        } else if (event.key === "Tab" && event.shiftKey && document.activeElement === trap) {
+        } else if (
+          event.key === "Tab" &&
+          event.shiftKey &&
+          document.activeElement === trap
+        ) {
           event.preventDefault();
           lastFocusableElement.focus();
         }
@@ -87,7 +100,9 @@ const common = {
 /*** * krds_mainMenuPC * ***/
 const krds_mainMenuPC = {
   init() {
-    const gnbMenu = document.querySelector(".krds-main-menu:not(.sample) .gnb-menu");
+    const gnbMenu = document.querySelector(
+      ".krds-main-menu:not(.sample) .gnb-menu"
+    );
 
     if (!gnbMenu) return;
 
@@ -95,11 +110,14 @@ const krds_mainMenuPC = {
     gnbMenu.setAttribute("aria-label", "메인 메뉴");
 
     // dimed 요소를 설정, 기존 dimed가 없을 경우 생성
-    this.backdrop = document.querySelector(".gnb-backdrop") || this.createBackdrop();
+    this.backdrop =
+      document.querySelector(".gnb-backdrop") || this.createBackdrop();
 
     // 주 메뉴 및 서브 메뉴의 트리거를 설정하고, 각 트리거에 이벤트를 연결
     const mainTriggers = gnbMenu.querySelectorAll(".gnb-main-trigger");
-    const subTriggers = gnbMenu.querySelectorAll(".gnb-sub-trigger:not(.is-link)");
+    const subTriggers = gnbMenu.querySelectorAll(
+      ".gnb-sub-trigger:not(.is-link)"
+    );
     mainTriggers.forEach((mainTrigger) => this.setupMainTrigger(mainTrigger));
     this.attachEvents(mainTriggers, subTriggers);
     this.setupKeyboardNavigation(mainTriggers);
@@ -107,7 +125,9 @@ const krds_mainMenuPC = {
   setupMainTrigger(mainTrigger) {
     const toggleWrap = mainTrigger.nextElementSibling;
     if (toggleWrap) {
-      const uniqueIdx = `gnb-main-menu-${Math.random().toString(36).substring(2, 9)}`;
+      const uniqueIdx = `gnb-main-menu-${Math.random()
+        .toString(36)
+        .substring(2, 9)}`;
       mainTrigger.setAttribute("aria-controls", uniqueIdx);
       mainTrigger.setAttribute("aria-expanded", "false");
       mainTrigger.setAttribute("aria-haspopup", "true");
@@ -118,7 +138,10 @@ const krds_mainMenuPC = {
       if (mainList?.getAttribute("data-has-submenu") === "true") {
         const subTriggers = mainList.querySelectorAll(".gnb-sub-trigger");
         subTriggers.forEach((subTrigger) => this.setupSubTrigger(subTrigger));
-        if (subTriggers.length > 0 && !subTriggers[0].classList.contains("is-link")) {
+        if (
+          subTriggers.length > 0 &&
+          !subTriggers[0].classList.contains("is-link")
+        ) {
           subTriggers[0].classList.add("active");
           subTriggers[0].setAttribute("aria-expanded", "true");
           subTriggers[0].nextElementSibling?.classList.add("active");
@@ -129,7 +152,9 @@ const krds_mainMenuPC = {
   setupSubTrigger(subTrigger) {
     const hasMenu = subTrigger.nextElementSibling;
     if (hasMenu) {
-      const uniqueIdx = `gnb-sub-menu-${Math.random().toString(36).substring(2, 9)}`;
+      const uniqueIdx = `gnb-sub-menu-${Math.random()
+        .toString(36)
+        .substring(2, 9)}`;
       subTrigger.setAttribute("aria-controls", uniqueIdx);
       subTrigger.setAttribute("aria-expanded", "false");
       subTrigger.setAttribute("aria-haspopup", "true");
@@ -147,14 +172,18 @@ const krds_mainMenuPC = {
       if (!isDropDown) {
         this.toggleBackdrop(true);
         this.toggleScrollbar(true);
-        this.adjustSubMenuHeight(mainTrigger.nextElementSibling.querySelector(".gnb-main-list"));
+        this.adjustSubMenuHeight(
+          mainTrigger.nextElementSibling.querySelector(".gnb-main-list")
+        );
       }
     } else {
       this.closeMainMenu();
     }
   },
   toggleSubMenu(subTrigger) {
-    const otherSubTriggers = subTrigger.closest("ul").querySelectorAll(".gnb-sub-trigger:not(.is-link)");
+    const otherSubTriggers = subTrigger
+      .closest("ul")
+      .querySelectorAll(".gnb-sub-trigger:not(.is-link)");
     otherSubTriggers.forEach((trigger) => {
       trigger.classList.remove("active");
       trigger.setAttribute("aria-expanded", "false");
@@ -188,13 +217,19 @@ const krds_mainMenuPC = {
     document.body.classList.toggle("hasScrollY", isEnabled && isScrollNeeded);
   },
   resetMainMenu() {
-    document.querySelectorAll(".krds-main-menu:not(.sample) .gnb-main-trigger:not(.is-link)").forEach((mainTrigger) => {
-      mainTrigger.classList.remove("active");
-      mainTrigger.setAttribute("aria-expanded", "false");
-    });
-    document.querySelectorAll(".krds-main-menu:not(.sample) .gnb-toggle-wrap").forEach((toggleWrap) => {
-      toggleWrap.classList.remove("is-open");
-    });
+    document
+      .querySelectorAll(
+        ".krds-main-menu:not(.sample) .gnb-main-trigger:not(.is-link)"
+      )
+      .forEach((mainTrigger) => {
+        mainTrigger.classList.remove("active");
+        mainTrigger.setAttribute("aria-expanded", "false");
+      });
+    document
+      .querySelectorAll(".krds-main-menu:not(.sample) .gnb-toggle-wrap")
+      .forEach((toggleWrap) => {
+        toggleWrap.classList.remove("is-open");
+      });
   },
   closeMainMenu() {
     this.resetMainMenu();
@@ -219,12 +254,16 @@ const krds_mainMenuPC = {
 
     // 메인 메뉴 트리거 설정
     mainTriggers.forEach((mainTrigger) => {
-      mainTrigger.addEventListener("click", () => this.toggleMainMenu(mainTrigger));
+      mainTrigger.addEventListener("click", () =>
+        this.toggleMainMenu(mainTrigger)
+      );
     });
 
     // 서브 메뉴 트리거 설정
     subTriggers.forEach((subTrigger) => {
-      subTrigger.addEventListener("click", () => this.toggleSubMenu(subTrigger));
+      subTrigger.addEventListener("click", () =>
+        this.toggleSubMenu(subTrigger)
+      );
     });
   },
   setupKeyboardNavigation(mainTriggers) {
@@ -234,7 +273,8 @@ const krds_mainMenuPC = {
       }
     };
     const findFocusableElement = (element, direction) => {
-      const sibling = direction === "next" ? "nextElementSibling" : "previousElementSibling";
+      const sibling =
+        direction === "next" ? "nextElementSibling" : "previousElementSibling";
       const parent = element.closest("li")?.[sibling];
       return parent ? parent.querySelector("[data-trigger]") : null;
     };
@@ -274,7 +314,9 @@ const krds_mainMenuPC = {
 /*** * krds_mainMenuMobile * ***/
 const krds_mainMenuMobile = {
   init() {
-    const mobileGnb = document.querySelector(".krds-main-menu-mobile:not(.sample)");
+    const mobileGnb = document.querySelector(
+      ".krds-main-menu-mobile:not(.sample)"
+    );
 
     if (!mobileGnb) return;
 
@@ -300,30 +342,37 @@ const krds_mainMenuMobile = {
     const tabList = mobileGnb.querySelector(".menu-wrap");
     if (tabList) {
       tabList.querySelector(".menu-wrap ul").setAttribute("role", "tablist");
-      tabList.querySelectorAll(".menu-wrap li").forEach((li) => li.setAttribute("role", "none"));
+      tabList
+        .querySelectorAll(".menu-wrap li")
+        .forEach((li) => li.setAttribute("role", "none"));
 
       const tabs = document.querySelectorAll(".menu-wrap .gnb-main-trigger");
       tabs.forEach((item, idx) => {
         item.setAttribute("role", "tab");
         item.setAttribute("aria-selected", "false");
-        item.setAttribute("aria-controls", item.getAttribute("href").substring(1));
+        item.setAttribute(
+          "aria-controls",
+          item.getAttribute("href").substring(1)
+        );
         item.setAttribute("id", `tab-${idx}`);
 
         // gnb-main-trigger 클릭시 해당 위치로 스크롤
         item.addEventListener("click", (event) => {
           event.preventDefault();
           const id = item.getAttribute("aria-controls");
-          const top = document.getElementById(id).offsetTop
+          const top = document.getElementById(id).offsetTop;
           const gnbBody = document.querySelector(".gnb-body");
           gnbBody.scrollTo({
             left: 0,
             top: top,
             behavior: "smooth",
           });
-        })
+        });
       });
 
-      const tabPanels = document.querySelectorAll(".submenu-wrap .gnb-sub-list");
+      const tabPanels = document.querySelectorAll(
+        ".submenu-wrap .gnb-sub-list"
+      );
       tabPanels.forEach((item, idx) => {
         item.setAttribute("role", "tabpanel");
         item.setAttribute("aria-labelledby", `tab-${idx}`);
@@ -364,9 +413,9 @@ const krds_mainMenuMobile = {
       const top = document.getElementById(id).offsetTop;
       const gnbBody = document.querySelector(".gnb-body");
       gnbBody.style.scrollBehavior = "auto";
-      gnbBody.scrollTop = top
-    } 
-    
+      gnbBody.scrollTop = top;
+    }
+
     setTimeout(() => {
       mobileGnb.classList.add("is-backdrop");
       mobileGnb.classList.add("is-open");
@@ -379,14 +428,15 @@ const krds_mainMenuMobile = {
       mobileGnb.removeEventListener("transitionend", onTransitionEnd);
 
       // inert 설정
-      document.querySelector("#krds-header .header-in").setAttribute("inert", "");
+      document
+        .querySelector("#krds-header .header-in")
+        .setAttribute("inert", "");
       document.getElementById("container")?.setAttribute("inert", "");
       document.getElementById("footer")?.setAttribute("inert", "");
-      
+
       // 포커스 트랩 설정
       common.focusTrap(mobileGnb);
     });
-
   },
   closeMainMenu(mobileGnb) {
     const id = mobileGnb.getAttribute("id");
@@ -402,13 +452,13 @@ const krds_mainMenuMobile = {
     document.querySelector("#krds-header .header-in").removeAttribute("inert");
     document.getElementById("container")?.removeAttribute("inert");
     document.getElementById("footer")?.removeAttribute("inert");
-    
+
     // transition 종료후 실행
     mobileGnb.addEventListener("transitionend", function onTransitionEnd() {
       openGnb.focus();
       mobileGnb.removeEventListener("transitionend", onTransitionEnd);
     });
-    
+
     setTimeout(() => {
       mobileGnb.style.display = "none";
       document.body.classList.remove("is-gnb-mobile");
@@ -471,7 +521,9 @@ const krds_mainMenuMobile = {
     });
   },
   setupAnchorLinks(mobileGnb) {
-    const menuItems = mobileGnb.querySelectorAll(".menu-wrap .gnb-main-trigger");
+    const menuItems = mobileGnb.querySelectorAll(
+      ".menu-wrap .gnb-main-trigger"
+    );
     const navItems = mobileGnb.querySelectorAll(".submenu-wrap .gnb-sub-list");
 
     if (!document.querySelector(".menu-wrap .gnb-main-trigger.active")) {
@@ -491,7 +543,9 @@ const krds_mainMenuMobile = {
           } else {
             item.setAttribute("aria-expanded", "false");
           }
-          item.addEventListener("click", (event) => this.handleDepth3Click(event, item));
+          item.addEventListener("click", (event) =>
+            this.handleDepth3Click(event, item)
+          );
         });
       }
     });
@@ -501,7 +555,9 @@ const krds_mainMenuMobile = {
       const depth4Items = item.querySelectorAll(".has-depth4");
       if (depth4Items.length > 0) {
         depth4Items.forEach((item) => {
-          item.addEventListener("click", (event) => this.handleDepth4Click(event, item));
+          item.addEventListener("click", (event) =>
+            this.handleDepth4Click(event, item)
+          );
         });
       }
     });
@@ -555,10 +611,12 @@ const krds_mainMenuMobile = {
     common.focusTrap(target);
   },
   resetAnchorMenu() {
-    document.querySelectorAll(".krds-main-menu-mobile .menu-wrap .gnb-main-trigger").forEach((menu) => {
-      menu.classList.remove("active");
-      menu.setAttribute("aria-selected", "false");
-    });
+    document
+      .querySelectorAll(".krds-main-menu-mobile .menu-wrap .gnb-main-trigger")
+      .forEach((menu) => {
+        menu.classList.remove("active");
+        menu.setAttribute("aria-selected", "false");
+      });
   },
 };
 
@@ -570,7 +628,9 @@ const krds_sideNavigation = {
     this.setupPopupEvents();
   },
   setupSideNavLists() {
-    const sideNavLists = document.querySelectorAll(".krds-side-navigation .lnb-list");
+    const sideNavLists = document.querySelectorAll(
+      ".krds-side-navigation .lnb-list"
+    );
     sideNavLists.forEach((navList) => {
       const navItems = navList.querySelectorAll("li");
       navItems.forEach((navItem) => this.setupNavItem(navItem));
@@ -585,33 +645,40 @@ const krds_sideNavigation = {
 
     // aria 설정
     navButton.setAttribute("aria-controls", uniqueIdx);
-    navButton.setAttribute("aria-expanded", navButton.classList.contains("active"));
+    navButton.setAttribute(
+      "aria-expanded",
+      navButton.classList.contains("active")
+    );
 
     // 서브메뉴 id 설정 및 popup 처리
     if (navButton.classList.contains("lnb-toggle-popup")) {
       navButton.setAttribute("aria-haspopup", "true");
     }
     if (navSubmenu && navSubmenu.className.includes("lnb-submenu")) {
-      const navSubmenuList = navSubmenu.classList.contains("lnb-submenu-lv2") ? navSubmenu : navSubmenu.querySelector(":scope > ul");
+      const navSubmenuList = navSubmenu.classList.contains("lnb-submenu-lv2")
+        ? navSubmenu
+        : navSubmenu.querySelector(":scope > ul");
       navSubmenuList?.setAttribute("id", uniqueIdx);
     }
   },
   setupToggleEvents() {
-    const toggleButtons = document.querySelectorAll(".krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle");
+    const toggleButtons = document.querySelectorAll(
+      ".krds-side-navigation .lnb-list:not(.exception-case) .lnb-toggle"
+    );
     toggleButtons.forEach((toggleButton) => {
       toggleButton.addEventListener("click", () => {
         const expand = toggleButton.getAttribute("aria-expanded") !== "true";
-        
+
         //this.toggleMenu(toggleButton, expand); 클릭 시 해당 버튼만 활성화 상태로 변경되어 해당 이벤트 주석처리.
         //this.closeSiblingMenus(toggleButton);  클릭 시 해당 버튼만 활성화 상태로 변경되어 해당 이벤트 주석처리.
         this.setActiveNav(toggleButton, expand);
       });
     });
   },
-  setActiveNav(toggleButton, expand){
+  setActiveNav(toggleButton, expand) {
     const parentListItem = toggleButton.closest("li");
-    toggleButton.setAttribute('aria-expanded', expand ? 'true' : 'false');
-    parentListItem.classList.toggle('active', expand);
+    toggleButton.setAttribute("aria-expanded", expand ? "true" : "false");
+    parentListItem.classList.toggle("active", expand);
   },
   setupPopupEvents() {
     let lastClickedButton = null;
@@ -623,7 +690,10 @@ const krds_sideNavigation = {
     popupToggleButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const popupSubmenu = button.nextElementSibling;
-        if (popupSubmenu && popupSubmenu.classList.contains("lnb-submenu-lv2")) {
+        if (
+          popupSubmenu &&
+          popupSubmenu.classList.contains("lnb-submenu-lv2")
+        ) {
           popupSubmenu.classList.add("active");
           button.setAttribute("aria-expanded", "true");
 
@@ -675,23 +745,40 @@ const krds_sideNavigation = {
   },
   closeSiblingMenus(toggleButton) {
     const parentListItem = toggleButton.closest("li");
-    const siblingButtons = parentListItem.parentNode.querySelectorAll(":scope > li > .lnb-toggle");
+    const siblingButtons = parentListItem.parentNode.querySelectorAll(
+      ":scope > li > .lnb-toggle"
+    );
     siblingButtons.forEach((siblingButton) => {
       if (siblingButton !== toggleButton) {
-        this.toggleMenu(siblingButton, false); 
+        this.toggleMenu(siblingButton, false);
       }
     });
   },
   setActiveCurrentPage() {
     // 활성화된 페이지를 찾는 예(개발 환경에 맞게 수정)
-    const currentPage = window.location.pathname.split("/").slice(-1)[0].replace(".html", "");
-    const lnbLinks = document.querySelectorAll(".krds-side-navigation .lnb-link");
+    const currentPage = window.location.pathname
+      .split("/")
+      .slice(-1)[0]
+      .replace(".html", "");
+    const lnbLinks = document.querySelectorAll(
+      ".krds-side-navigation .lnb-link"
+    );
     lnbLinks.forEach((link) => {
-      const linkPage = link.getAttribute("href").split("/").pop().replace(".html", "");
+      const linkPage = link
+        .getAttribute("href")
+        .split("/")
+        .pop()
+        .replace(".html", "");
       if (linkPage === currentPage) {
         link.closest(".lnb-item").classList.add("active");
-        link.closest(".lnb-item").querySelector(".lnb-toggle")?.classList.add("active");
-        link.closest(".lnb-item").querySelector(".lnb-toggle")?.setAttribute("aria-expanded", "true");
+        link
+          .closest(".lnb-item")
+          .querySelector(".lnb-toggle")
+          ?.classList.add("active");
+        link
+          .closest(".lnb-item")
+          .querySelector(".lnb-toggle")
+          ?.setAttribute("aria-expanded", "true");
         link.closest("li").classList.add("active");
         // 접근성 현재 페이지 표시 aria-current
         link.setAttribute("aria-current", "page");
@@ -737,8 +824,12 @@ const krds_tab = {
 
           // 클릭 이벤트
           tab.addEventListener("click", () => {
-            const closestTabs = tab.closest(".krds-tab-area.layer > .tab").querySelectorAll("li");
-            const closestTabPanels = tab.closest(".krds-tab-area.layer").querySelectorAll(":scope > .tab-conts-wrap > .tab-conts");
+            const closestTabs = tab
+              .closest(".krds-tab-area.layer > .tab")
+              .querySelectorAll("li");
+            const closestTabPanels = tab
+              .closest(".krds-tab-area.layer")
+              .querySelectorAll(":scope > .tab-conts-wrap > .tab-conts");
 
             this.resetTabs(closestTabs, closestTabPanels);
 
@@ -803,7 +894,10 @@ const krds_accordion = {
   accordionToggle(button, accordionItems, accordionType, currentItem) {
     const isExpanded = button.getAttribute("aria-expanded") === "true";
     // singleOpen 타입일 경우, 다른 항목 닫기
-    if (accordionType !== "multiOpen" && !currentItem.classList.contains("active")) {
+    if (
+      accordionType !== "multiOpen" &&
+      !currentItem.classList.contains("active")
+    ) {
       accordionItems.forEach((otherItem) => {
         const otherButton = otherItem.querySelector(".btn-accordion");
         otherButton.setAttribute("aria-expanded", "false");
@@ -819,7 +913,8 @@ const krds_accordion = {
   setupAccordions() {
     this.accordionButtons.forEach((button, idx) => {
       const accordionContainer = button.closest(".krds-accordion");
-      const accordionItems = accordionContainer.querySelectorAll(".accordion-item");
+      const accordionItems =
+        accordionContainer.querySelectorAll(".accordion-item");
       const currentItem = button.closest(".accordion-item");
       const accordionContent = currentItem.querySelector(".accordion-collapse");
       const accordionType = accordionContainer.dataset.type || "singleOpen";
@@ -838,7 +933,13 @@ const krds_accordion = {
       // 핸들러 고정 및 저장
       let toggleHandler = this.accordionHandlers.get(button);
       if (!toggleHandler) {
-        toggleHandler = this.accordionToggle.bind(this, button, accordionItems, accordionType, currentItem);
+        toggleHandler = this.accordionToggle.bind(
+          this,
+          button,
+          accordionItems,
+          accordionType,
+          currentItem
+        );
         this.accordionHandlers.set(button, toggleHandler);
       }
 
@@ -854,7 +955,10 @@ const krds_accordion = {
     button.setAttribute("aria-controls", `accordionCollapse-id-${uniqueIdx}`);
     accordionContent.setAttribute("role", "region");
     accordionContent.setAttribute("id", `accordionCollapse-id-${uniqueIdx}`);
-    accordionContent.setAttribute("aria-labelledby", `accordionHeader-id-${uniqueIdx}`);
+    accordionContent.setAttribute(
+      "aria-labelledby",
+      `accordionHeader-id-${uniqueIdx}`
+    );
   },
 };
 
@@ -867,7 +971,8 @@ const krds_modal = {
     this.modalOpenTriggers = document.querySelectorAll(".open-modal");
     this.modalCloseTriggers = document.querySelectorAll(".close-modal");
 
-    if (!this.modalOpenTriggers.length || !this.modalCloseTriggers.length) return;
+    if (!this.modalOpenTriggers.length || !this.modalCloseTriggers.length)
+      return;
 
     this.setupTriggers();
   },
@@ -925,9 +1030,11 @@ const krds_modal = {
     setTimeout(() => {
       modalElement.classList.add("in");
     }, 150);
-    
+
     //열린 팝업창 포커스
-    const focusables = modalElement.querySelectorAll(`a, button, [tabindex="0"], input, textarea, select`);
+    const focusables = modalElement.querySelectorAll(
+      `a, button, [tabindex="0"], input, textarea, select`
+    );
     setTimeout(() => {
       // modalTitle.focus();
       focusables[0].focus();
@@ -986,7 +1093,7 @@ const krds_modal = {
     if (openModals.length < 2) {
       document.querySelector("body").classList.remove("scroll-no");
     }
-    
+
     // inert 설정
     document.getElementById("wrap")?.removeAttribute("inert");
 
@@ -1003,7 +1110,9 @@ const krds_modal = {
     }
   },
   returnFocusToTrigger(id) {
-    const triggerButton = document.querySelector(`.modal-opened[data-modal-id="${id}"]`);
+    const triggerButton = document.querySelector(
+      `.modal-opened[data-modal-id="${id}"]`
+    );
     if (triggerButton) {
       triggerButton.focus();
       triggerButton.setAttribute("tabindex", "0");
@@ -1017,7 +1126,9 @@ const krds_modal = {
 const krds_contextualHelp = {
   tooltipButtons: null,
   init() {
-    this.tooltipButtons = document.querySelectorAll(".krds-contextual-help .tooltip-btn");
+    this.tooltipButtons = document.querySelectorAll(
+      ".krds-contextual-help .tooltip-btn"
+    );
 
     if (!this.tooltipButtons.length) return;
 
@@ -1064,7 +1175,9 @@ const krds_contextualHelp = {
 
     if (!isVisible) {
       tooltipPopover.style.display = "block";
-      const focusables = tooltipPopover.querySelector(`a, button, [tabindex="0"], input, textarea, select`);
+      const focusables = tooltipPopover.querySelector(
+        `a, button, [tabindex="0"], input, textarea, select`
+      );
       focusables?.focus();
       button.setAttribute("aria-expanded", "true");
 
@@ -1072,7 +1185,9 @@ const krds_contextualHelp = {
     }
   },
   closeAllTooltips() {
-    const otherPopovers = document.querySelectorAll(".krds-contextual-help .tooltip-popover");
+    const otherPopovers = document.querySelectorAll(
+      ".krds-contextual-help .tooltip-popover"
+    );
     otherPopovers.forEach((popover) => {
       popover.style.display = "none";
     });
@@ -1087,10 +1202,13 @@ const krds_contextualHelp = {
 
     if (isMobile) {
       const rootStyles = getComputedStyle(document.querySelector(":root"));
-      const contentsPaddingX = rootStyles.getPropertyValue("--krds-contents-padding-x").trim().split("px")[0];
+      const contentsPaddingX = rootStyles
+        .getPropertyValue("--krds-contents-padding-x")
+        .trim()
+        .split("px")[0];
       const tooltipActionRect = tooltipAction.getBoundingClientRect();
       const offsetLeft = tooltipActionRect.left - contentsPaddingX;
-      const width = document.body.clientWidth - (contentsPaddingX * 2);
+      const width = document.body.clientWidth - contentsPaddingX * 2;
       tooltipPopover.style.left = `-${offsetLeft}px`;
       tooltipPopover.style.width = `${width}px`;
     } else {
@@ -1102,11 +1220,12 @@ const krds_contextualHelp = {
   setupFocusOutEvent() {
     document.addEventListener("click", (event) => {
       const clickedInsideTooltip = event.target.closest(".tooltip-action");
-      if (!clickedInsideTooltip ) {
+      if (!clickedInsideTooltip) {
         this.closeAllTooltips();
       } else {
-        const FocusPopover = clickedInsideTooltip.querySelector('.tooltip-close');
-        FocusPopover.addEventListener('focusout', ()=>{
+        const FocusPopover =
+          clickedInsideTooltip.querySelector(".tooltip-close");
+        FocusPopover.addEventListener("focusout", () => {
           this.closeAllTooltips();
           clickedInsideTooltip.querySelector(".tooltip-btn")?.focus();
         });
@@ -1137,12 +1256,18 @@ const krds_tooltip = {
       if (!tooltipText || disabled) return;
 
       // ID 부여
-      const uniqueIdx = `tooltip-popover-${index}${Math.random().toString(36).substring(2, 9)}`;
+      const uniqueIdx = `tooltip-popover-${index}${Math.random()
+        .toString(36)
+        .substring(2, 9)}`;
       item.setAttribute("aria-labelledby", uniqueIdx);
 
       // TooltipPopover 생성
       const tooltipBtnText = item.innerText;
-      const tooltipPopover = this.createTooltipPopover(uniqueIdx, tooltipBtnText, tooltipText);
+      const tooltipPopover = this.createTooltipPopover(
+        uniqueIdx,
+        tooltipBtnText,
+        tooltipText
+      );
       item.parentNode.insertBefore(tooltipPopover, item.nextSibling);
 
       // Show/Hide 함수 정의
@@ -1206,15 +1331,25 @@ const krds_tooltip = {
   calculateTooltipPosition(item, tooltipPopover) {
     // 툴팁과 기준 요소 간격
     const tooltipGap = 12;
-    const { clientHeight: tooltipHeight, clientWidth: tooltipWidth } = tooltipPopover;
-    const { top: itemTop, left: itemLeft, right: itemRight, height: itemHeight, width: itemWidth } = item.getBoundingClientRect();
+    const { clientHeight: tooltipHeight, clientWidth: tooltipWidth } =
+      tooltipPopover;
+    const {
+      top: itemTop,
+      left: itemLeft,
+      right: itemRight,
+      height: itemHeight,
+      width: itemWidth,
+    } = item.getBoundingClientRect();
     const halfWindowWidth = window.innerWidth / 2;
     const halfWindowHeight = window.innerHeight / 2;
 
     let tooltipTop;
     let tooltipLeft;
 
-    const isVertical = this.isMobile || item.classList.contains("tooltip-box") || item.classList.contains("tooltip-vertical");
+    const isVertical =
+      this.isMobile ||
+      item.classList.contains("tooltip-box") ||
+      item.classList.contains("tooltip-vertical");
 
     if (isVertical) {
       if (itemTop + itemHeight > halfWindowHeight) {
@@ -1299,7 +1434,10 @@ const krds_calendar = {
           dateButton.setAttribute("aria-pressed", "true");
         }
         if (cell.classList.contains("day-event")) {
-          dateButton.setAttribute("aria-label", `${dateButton.innerText} 일정있음`);
+          dateButton.setAttribute(
+            "aria-label",
+            `${dateButton.innerText} 일정있음`
+          );
         }
         if (cell.classList.contains("today")) {
           dateButton.setAttribute("aria-label", `${dateButton.innerText} 오늘`);
@@ -1330,7 +1468,9 @@ const krds_calendar = {
 
       // calendar-select의 마지막 버튼이 blur될 때 선택기 닫기
       datePicker.querySelectorAll(".calendar-select").forEach((select) => {
-        const lastSelectButton = select.querySelector(".sel > li:last-child > button");
+        const lastSelectButton = select.querySelector(
+          ".sel > li:last-child > button"
+        );
         if (lastSelectButton) {
           lastSelectButton.addEventListener("blur", () => {
             this.resetDateSelector();
@@ -1343,7 +1483,9 @@ const krds_calendar = {
     // 열려있던 달력 모두 닫기
     this.closeAllDatePickers();
 
-    const currentDatePicker = button.closest(".calendar-conts").querySelector(".krds-calendar-area");
+    const currentDatePicker = button
+      .closest(".calendar-conts")
+      .querySelector(".krds-calendar-area");
     currentDatePicker.classList.add("active");
 
     // 접근성
@@ -1368,7 +1510,9 @@ const krds_calendar = {
   closeAllDatePickers() {
     this.datePickerArea.forEach((datePicker) => {
       if (datePicker.classList.contains("active")) {
-        const target = datePicker.closest(".calendar-conts").querySelector(".form-btn-datepicker");
+        const target = datePicker
+          .closest(".calendar-conts")
+          .querySelector(".form-btn-datepicker");
         target.focus();
       }
       datePicker.classList.remove("active");
@@ -1396,7 +1540,9 @@ const krds_calendar = {
 
         listBox.setAttribute("role", "listbox");
         listBox.setAttribute("id", `combo-list-${uniqueIdx}`);
-        listBox.querySelectorAll("li").forEach((li) => li.setAttribute("role", "none"));
+        listBox
+          .querySelectorAll("li")
+          .forEach((li) => li.setAttribute("role", "none"));
 
         listOptions.forEach((listOption) => {
           listOption.setAttribute("role", "option");
@@ -1431,7 +1577,9 @@ const krds_calendar = {
       if (target) {
         target.setAttribute("aria-selected", "true");
         target.classList.add("active");
-        target.closest(".calendar-drop-down").querySelector("button").innerHTML = target.innerHTML;
+        target
+          .closest(".calendar-drop-down")
+          .querySelector("button").innerHTML = target.innerHTML;
       }
 
       // ui 동작 확인용 테스트 코드
@@ -1440,8 +1588,12 @@ const krds_calendar = {
   },
   toggleDateSelector() {
     this.datePickerArea.forEach((datePicker) => {
-      const selectToggleButtons = datePicker.querySelectorAll(".calendar-drop-down .btn-cal-switch");
-      const selectOptions = datePicker.querySelectorAll(".calendar-select .sel button");
+      const selectToggleButtons = datePicker.querySelectorAll(
+        ".calendar-drop-down .btn-cal-switch"
+      );
+      const selectOptions = datePicker.querySelectorAll(
+        ".calendar-select .sel button"
+      );
 
       // 공통 이벤트 처리
       const handleBtnClick = (event, selectMenu) => {
@@ -1470,7 +1622,9 @@ const krds_calendar = {
       // 셀렉터 설정
       selectToggleButtons.forEach((toggle) => {
         toggle.addEventListener("click", (event) => {
-          const selectMenu = event.target.closest(".calendar-drop-down").querySelector(".calendar-select");
+          const selectMenu = event.target
+            .closest(".calendar-drop-down")
+            .querySelector(".calendar-select");
           handleBtnClick(event, selectMenu);
         });
       });
@@ -1483,7 +1637,10 @@ const krds_calendar = {
 
           // 포커스 이동
           setTimeout(() => {
-            option.closest(".calendar-drop-down").querySelector(".btn-cal-switch")?.focus();
+            option
+              .closest(".calendar-drop-down")
+              .querySelector(".btn-cal-switch")
+              ?.focus();
           }, 50);
         });
       });
@@ -1498,7 +1655,9 @@ const krds_calendar = {
   },
   actionDatePicker() {
     this.datePickerArea.forEach((datePicker) => {
-      const actionButtons = datePicker.querySelectorAll(".calendar-btn-wrap button:not(#get-today)");
+      const actionButtons = datePicker.querySelectorAll(
+        ".calendar-btn-wrap button:not(#get-today)"
+      );
       actionButtons.forEach((button) => {
         button.addEventListener("click", () => {
           this.closeAllDatePickers();
@@ -1509,12 +1668,20 @@ const krds_calendar = {
   // ui 동작 확인용 테스트 코드
   example() {
     this.datePickerArea.forEach((datePicker) => {
-      const year = datePicker.querySelector(".calendar-switch-wrap .year").innerText.slice(0, -1);
-      const month = datePicker.querySelector(".calendar-switch-wrap .month").innerText.slice(0, -1);
+      const year = datePicker
+        .querySelector(".calendar-switch-wrap .year")
+        .innerText.slice(0, -1);
+      const month = datePicker
+        .querySelector(".calendar-switch-wrap .month")
+        .innerText.slice(0, -1);
       const caption = datePicker.querySelector(".calendar-tbl caption");
       const tblCells = datePicker.querySelectorAll(".calendar-tbl td");
-      const tblCellBtns = datePicker.querySelectorAll(".calendar-tbl td .btn-set-date");
-      const actionBtns = datePicker.querySelectorAll(".calendar-btn-wrap button");
+      const tblCellBtns = datePicker.querySelectorAll(
+        ".calendar-tbl td .btn-set-date"
+      );
+      const actionBtns = datePicker.querySelectorAll(
+        ".calendar-btn-wrap button"
+      );
       let clickCount = 0;
       let startTd = null;
 
@@ -1523,7 +1690,9 @@ const krds_calendar = {
 
       // 테스트용 (실제 구현에서는 날짜 배열을 받아 처리함)
       tblCells.forEach((cell) => {
-        const day = cell.querySelector(".btn-set-date").innerText.padStart(2, "0");
+        const day = cell
+          .querySelector(".btn-set-date")
+          .innerText.padStart(2, "0");
         let [numberYear, numberMonth] = [parseFloat(year), parseFloat(month)];
         if (cell.classList.contains("old")) {
           if (numberMonth === 1) {
@@ -1540,16 +1709,29 @@ const krds_calendar = {
             numberMonth += 1;
           }
         }
-        cell.setAttribute("data-date", `${numberYear}.${String(numberMonth).padStart(2, "0")}.${day}`);
+        cell.setAttribute(
+          "data-date",
+          `${numberYear}.${String(numberMonth).padStart(2, "0")}.${day}`
+        );
       });
 
       // action
       const accReset = (action, btn, type) => {
         // 인풋 단일
-        const targetInput = btn.closest(".calendar-conts").querySelector("input.datepicker.cal");
+        const targetInput = btn
+          .closest(".calendar-conts")
+          .querySelector("input.datepicker.cal");
         // 인풋 분할
-        const targetInputStart = btn.closest(".calendar-conts").querySelector(".input-group.range.set li:first-child input.datepicker");
-        const targetInputEnd = btn.closest(".calendar-conts").querySelector(".input-group.range.set li:last-child input.datepicker");
+        const targetInputStart = btn
+          .closest(".calendar-conts")
+          .querySelector(
+            ".input-group.range.set li:first-child input.datepicker"
+          );
+        const targetInputEnd = btn
+          .closest(".calendar-conts")
+          .querySelector(
+            ".input-group.range.set li:last-child input.datepicker"
+          );
 
         action.addEventListener("click", () => {
           if (targetInput) {
@@ -1560,11 +1742,21 @@ const krds_calendar = {
             }
             if (target === "확인") {
               if (type === "single") {
-                const value = action.closest(".krds-calendar-area").querySelector("td.period.start.end").getAttribute("data-date");
+                const value = action
+                  .closest(".krds-calendar-area")
+                  .querySelector("td.period.start.end")
+                  .getAttribute("data-date");
                 targetInput.value = value;
               } else {
-                const value1 = action.closest(".krds-calendar-area").querySelector("td.period.start")?.getAttribute("data-date");
-                const value2 = action.closest(".krds-calendar-area").querySelector("td.period.end")?.getAttribute("data-date") || "";
+                const value1 = action
+                  .closest(".krds-calendar-area")
+                  .querySelector("td.period.start")
+                  ?.getAttribute("data-date");
+                const value2 =
+                  action
+                    .closest(".krds-calendar-area")
+                    .querySelector("td.period.end")
+                    ?.getAttribute("data-date") || "";
                 targetInput.value = `${value1} ~ ${value2}`;
               }
             }
@@ -1576,8 +1768,15 @@ const krds_calendar = {
               accSet();
             }
             if (target === "확인") {
-              const value1 = action.closest(".krds-calendar-area").querySelector("td.period.start")?.getAttribute("data-date");
-              const value2 = action.closest(".krds-calendar-area").querySelector("td.period.end")?.getAttribute("data-date") || "";
+              const value1 = action
+                .closest(".krds-calendar-area")
+                .querySelector("td.period.start")
+                ?.getAttribute("data-date");
+              const value2 =
+                action
+                  .closest(".krds-calendar-area")
+                  .querySelector("td.period.end")
+                  ?.getAttribute("data-date") || "";
               targetInputStart.value = value1;
               targetInputEnd.value = value2;
             }
@@ -1585,13 +1784,21 @@ const krds_calendar = {
         });
         // 공통 접근성
         const accSet = () => {
-          const prevItems = action.closest(".krds-calendar-area").querySelectorAll(".period");
+          const prevItems = action
+            .closest(".krds-calendar-area")
+            .querySelectorAll(".period");
           prevItems.forEach((prev) => {
             prev.classList.remove("period", "start", "end");
             prev.querySelector(".btn-set-date").removeAttribute("aria-pressed");
           });
-          action.closest(".krds-calendar-area").querySelector("td.today").classList.add("period", "start", "end");
-          action.closest(".krds-calendar-area").querySelector("td.today .btn-set-date").setAttribute("aria-pressed", "true");
+          action
+            .closest(".krds-calendar-area")
+            .querySelector("td.today")
+            .classList.add("period", "start", "end");
+          action
+            .closest(".krds-calendar-area")
+            .querySelector("td.today .btn-set-date")
+            .setAttribute("aria-pressed", "true");
         };
       };
 
@@ -1603,7 +1810,9 @@ const krds_calendar = {
         }
 
         // var
-        const isSingle = btn.closest(".calendar-wrap").classList.contains("single");
+        const isSingle = btn
+          .closest(".calendar-wrap")
+          .classList.contains("single");
 
         if (isSingle) {
           btn.addEventListener("click", () => {
@@ -1612,13 +1821,13 @@ const krds_calendar = {
               otherBtn.removeAttribute("aria-pressed");
             });
             btn.closest("td").classList.add("period", "start", "end");
-            btn.setAttribute("aria-pressed", "true");  
+            btn.setAttribute("aria-pressed", "true");
           });
           // action
           actionBtns.forEach((action) => {
             accReset(action, btn, "single");
           });
-        } else {         
+        } else {
           btn.addEventListener("click", () => {
             const currentTd = btn.closest("td");
             // 현재 td의 날짜
@@ -1638,7 +1847,9 @@ const krds_calendar = {
 
             if (clickCount % 2 === 1) {
               tblCellBtns.forEach((otherBtn) => {
-                otherBtn.closest("td").classList.remove("period", "start", "end");
+                otherBtn
+                  .closest("td")
+                  .classList.remove("period", "start", "end");
                 otherBtn.removeAttribute("aria-pressed");
               });
               btn.closest("td").classList.add("period", "start");
@@ -1678,7 +1889,9 @@ const krds_calendar = {
 const krds_inPageNavigation = {
   quickIndicators: null,
   init() {
-    this.quickIndicators = document.querySelectorAll(".krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list");
+    this.quickIndicators = document.querySelectorAll(
+      ".krds-in-page-navigation-type .krds-in-page-navigation-area:not(.sample) .in-page-navigation-list"
+    );
 
     if (!this.quickIndicators.length) return;
 
@@ -1688,7 +1901,9 @@ const krds_inPageNavigation = {
   },
   observeListChanges() {
     // in-page-navigation-list 변경 시 setupAnchorScroll 호출
-    const quickList = document.querySelector(".krds-in-page-navigation-type .in-page-navigation-list");
+    const quickList = document.querySelector(
+      ".krds-in-page-navigation-type .in-page-navigation-list"
+    );
     if (!quickList) return;
     const observer = new MutationObserver(() => {
       this.setupAnchorScroll();
@@ -1737,8 +1952,10 @@ const krds_inPageNavigation = {
     }
   },
   calculateHeaderHeight() {
-    const headerTop = document.querySelector("#krds-masthead")?.clientHeight || 0;
-    const headerInner = document.querySelector("#krds-header .header-in")?.clientHeight || 0;
+    const headerTop =
+      document.querySelector("#krds-masthead")?.clientHeight || 0;
+    const headerInner =
+      document.querySelector("#krds-header .header-in")?.clientHeight || 0;
     return headerTop + headerInner;
   },
   updateActiveSection() {
@@ -1769,17 +1986,25 @@ const krds_inPageNavigation = {
         const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - topHeight;
         const sectionId = current.getAttribute("id");
-        const navLink = document.querySelector(`.krds-in-page-navigation-area a[href*=${sectionId}]`);
-        const firstAnchor = document.querySelector(".krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a");
-        const lastAnchor = document.querySelector(".krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a");
+        const navLink = document.querySelector(
+          `.krds-in-page-navigation-area a[href*=${sectionId}]`
+        );
+        const firstAnchor = document.querySelector(
+          ".krds-in-page-navigation-area .in-page-navigation-list li:first-of-type a"
+        );
+        const lastAnchor = document.querySelector(
+          ".krds-in-page-navigation-area .in-page-navigation-list li:last-of-type a"
+        );
         if (scrollBottom >= scrollHeight) {
           // 스크롤이 페이지 끝에 도달했을 때
           this.setActiveIndicator(lastAnchor);
-        }
-        else if (window.scrollY <= firstSecTop) {
+        } else if (window.scrollY <= firstSecTop) {
           // 스크롤이 첫번째 섹션보다 위에 있을때
           this.setActiveIndicator(firstAnchor);
-        } else if (window.scrollY > sectionTop && window.scrollY <= sectionTop + sectionHeight) {
+        } else if (
+          window.scrollY > sectionTop &&
+          window.scrollY <= sectionTop + sectionHeight
+        ) {
           // 현재 섹션에 있을 때
           this.setActiveIndicator(navLink);
         }
@@ -1819,8 +2044,11 @@ const krds_helpPanel = {
     this.toggleScrollLock();
   },
   setupPadding() {
-    const topBannerHeight = document.querySelector("#krds-masthead")?.offsetHeight;
-    const headerHeight = document.querySelector("#krds-header .header-in")?.offsetHeight;
+    const topBannerHeight =
+      document.querySelector("#krds-masthead")?.offsetHeight;
+    const headerHeight = document.querySelector(
+      "#krds-header .header-in"
+    )?.offsetHeight;
     const defaultPadding = topBannerHeight + headerHeight;
     const hiddenBannerPadding = headerHeight;
 
@@ -1934,7 +2162,10 @@ const krds_helpPanel = {
   },
   toggleScrollLock() {
     setTimeout(() => {
-      if (windowSize.getWinSize() === "mob" && this.helpPanel.classList.contains("expand")) {
+      if (
+        windowSize.getWinSize() === "mob" &&
+        this.helpPanel.classList.contains("expand")
+      ) {
         document.body.classList.add("scroll-no");
       } else {
         document.body.classList.remove("scroll-no");
@@ -1957,7 +2188,9 @@ const krds_disclosure = {
     this.disclosures.forEach((disclosure) => {
       const disclosureButton = disclosure.querySelector(".btn-conts-expand");
       const disclosureContent = disclosure.querySelector(".expand-wrap");
-      const uniqueIdx = `disclosure-${Math.random().toString(36).substring(2, 9)}`;
+      const uniqueIdx = `disclosure-${Math.random()
+        .toString(36)
+        .substring(2, 9)}`;
 
       // 예외 처리: disclosureButton 없이 active 상태를 직접 설정하여 확장 상태를 제어하는 경우
       if (!disclosureButton) return;
@@ -1980,7 +2213,8 @@ const krds_disclosure = {
     });
   },
   toggleDisclosure(disclosure, disclosureButton, disclosureContent) {
-    const isExpanded = disclosureButton.getAttribute("aria-expanded") === "true";
+    const isExpanded =
+      disclosureButton.getAttribute("aria-expanded") === "true";
 
     disclosure.classList.toggle("active", !isExpanded);
     disclosureButton.setAttribute("aria-expanded", !isExpanded);
@@ -2001,7 +2235,9 @@ const krds_adjustContentScale = {
   minScale: 0.5,
   maxScale: 2,
   init() {
-    const scaleButtons = document.querySelectorAll("[data-adjust] [data-adjust-scale]");
+    const scaleButtons = document.querySelectorAll(
+      "[data-adjust] [data-adjust-scale]"
+    );
 
     if (!scaleButtons.length) return;
 
@@ -2012,7 +2248,9 @@ const krds_adjustContentScale = {
     const zoomMedium = rootStyles.getPropertyValue("--krds-zoom-medium").trim();
     const zoomLarge = rootStyles.getPropertyValue("--krds-zoom-large").trim();
     const zoomXlarge = rootStyles.getPropertyValue("--krds-zoom-xlarge").trim();
-    const zoomXxlarge = rootStyles.getPropertyValue("--krds-zoom-xxlarge").trim();
+    const zoomXxlarge = rootStyles
+      .getPropertyValue("--krds-zoom-xxlarge")
+      .trim();
 
     scaleButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -2022,8 +2260,12 @@ const krds_adjustContentScale = {
             this.scaleValue(zoomSmall);
             break;
           case "md":
-            const others = button.closest(".drop-menu").querySelectorAll(".item-link");
-            const defaultSize = button.closest(".drop-menu").querySelector(".item-link.md");
+            const others = button
+              .closest(".drop-menu")
+              .querySelectorAll(".item-link");
+            const defaultSize = button
+              .closest(".drop-menu")
+              .querySelector(".item-link.md");
             others.forEach((item) => {
               item.classList.remove("active");
               item.setAttribute("aria-selected", "false");
@@ -2121,7 +2363,9 @@ const krds_infoList = {
 const krds_dropEvent = {
   dropButtons: null,
   init() {
-    this.dropButtons = document.querySelectorAll(".krds-drop-wrap:not(.sample) .drop-btn");
+    this.dropButtons = document.querySelectorAll(
+      ".krds-drop-wrap:not(.sample) .drop-btn"
+    );
 
     if (!this.dropButtons.length) return;
 
@@ -2156,15 +2400,19 @@ const krds_dropEvent = {
       item.addEventListener("click", () => {
         this.activateMenuItem(item);
         this.closeAllDropdowns();
-        const button = item.closest(".krds-drop-wrap").querySelector(".drop-btn");
+        const button = item
+          .closest(".krds-drop-wrap")
+          .querySelector(".drop-btn");
         button?.focus();
       });
 
       item.addEventListener("focus", () => {
-        document.querySelectorAll(".krds-drop-wrap .drop-list .item-link").forEach((item) => {
-          item.style.position = "relative";
-          item.style.zIndex = "0";
-        });
+        document
+          .querySelectorAll(".krds-drop-wrap .drop-list .item-link")
+          .forEach((item) => {
+            item.style.position = "relative";
+            item.style.zIndex = "0";
+          });
         item.style.zIndex = "1";
       });
     });
@@ -2196,7 +2444,6 @@ const krds_dropEvent = {
     } else if (windowWidth < menuRect.left + menuRect.width) {
       menu.closest(".krds-drop-wrap").classList.add("drop-right");
     }
-
   },
   closeAllDropdowns() {
     document.querySelectorAll(".krds-drop-wrap .drop-menu").forEach((menu) => {
@@ -2212,7 +2459,10 @@ const krds_dropEvent = {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" || event.key === "Esc") {
         this.closeAllDropdowns();
-        event.target.closest(".krds-drop-wrap")?.querySelector(".drop-btn")?.focus();
+        event.target
+          .closest(".krds-drop-wrap")
+          ?.querySelector(".drop-btn")
+          ?.focus();
       }
     });
 
@@ -2231,7 +2481,9 @@ const krds_dropEvent = {
 
       // 드롭다운 메뉴의 포커스 아웃 처리
       menu.addEventListener("focusout", (event) => {
-        const isFocusInside = menu.contains(event.relatedTarget) || button.contains(event.relatedTarget);
+        const isFocusInside =
+          menu.contains(event.relatedTarget) ||
+          button.contains(event.relatedTarget);
         if (!isFocusInside) {
           this.closeAllDropdowns();
         }
@@ -2239,7 +2491,9 @@ const krds_dropEvent = {
 
       // 버튼의 포커스 아웃 처리
       button.addEventListener("focusout", (event) => {
-        const isFocusInside = menu.contains(event.relatedTarget) || button.contains(event.relatedTarget);
+        const isFocusInside =
+          menu.contains(event.relatedTarget) ||
+          button.contains(event.relatedTarget);
         if (!isFocusInside) {
           this.closeAllDropdowns();
         }
@@ -2321,7 +2575,7 @@ const krds_chkBox = {
     const formChip = document.querySelectorAll(".krds-form-chip");
 
     if (!formChip.length) return;
-    
+
     formChip.forEach((chip) => {
       const input = chip.querySelector("input");
       if (!input) return;
@@ -2332,7 +2586,6 @@ const krds_chkBox = {
         chip.classList.remove("focus");
       });
     });
-
   },
 };
 
@@ -2385,7 +2638,8 @@ const nuriToggleEvent = {
           $targetBody.style.height = `${_targetBodyH}px`;
           window.addEventListener("resize", () => {
             if ($targetBody.classList.contains("active")) {
-              const _targetBodyH = $targetBody.querySelector(".inner").scrollHeight;
+              const _targetBodyH =
+                $targetBody.querySelector(".inner").scrollHeight;
               $targetBody.style.height = `${_targetBodyH}px`;
             }
           });
