@@ -248,7 +248,8 @@
   --kpost-transition-collapse: max-height 0.4s ease;
   --kpost-transition-collapse-width: width 0.4s ease;
   --kpost-contents-size: 1280px;
-  --kpost-contents-padding-x: 24px;
+  --kpost-contents-padding-x-pc: 24px;
+  --kpost-contents-padding-x-mo: 16px;
   --kpost-contents-wrap-size: 1280px;
   --kpost-box-shadow-outline: 0 0 0 0.4rem var(--kpost-primary);
   --kpost-box-shadow-outline-inset: inset 0 0 0 0.2rem var(--kpost-primary);
@@ -648,8 +649,8 @@ caption {
 .inner {
   width: 100%;
   max-width: var(--kpost-contents-wrap-size);
-  padding-left: var(--kpost-contents-padding-x);
-  padding-right: var(--kpost-contents-padding-x);
+  padding-left: var(--kpost-contents-padding-x-pc);
+  padding-right: var(--kpost-contents-padding-x-pc);
 }
 @media (min-width: 1024px) {
   .inner {
@@ -677,6 +678,10 @@ caption {
   .mob-line {
     display: block;
     line-height: inherit;
+  }
+  .inner {
+    padding-left: var(--kpost-contents-padding-x-mo);
+    padding-right: var(--kpost-contents-padding-x-mo);
   }
 }
 

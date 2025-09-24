@@ -36,6 +36,7 @@
     border-bottom: 0.1rem solid var(--kpost-gray-30);
   }
 }
+
 #wrap[class*="scroll"] #header {
   position: relative;
   border-bottom: 0.1rem solid var(--kpost-gray-30);
@@ -686,6 +687,12 @@
     flex: 1;
   }
 }
+@media (max-width: 767px) {
+  #footer .f-cnt {
+    flex-direction: column;
+    font-size: var(--kpost-fs-sm);
+  }
+}
 #footer .f-cnt .f-info-wrap {
   display: flex;
   flex-direction: column;
@@ -776,6 +783,7 @@
   font-size: var(--kpost-fs-hd-lg);
   letter-spacing: var(--kpost-letter-spacing-1);
 }
+
 .main-tit-wrap h3.tit {
   font-size: var(--kpost-fs-hd-md);
   letter-spacing: var(--kpost-letter-spacing-1);
@@ -783,6 +791,12 @@
 .main-tit-wrap h4.tit {
   font-size: var(--kpost-fs-hd-sm);
   letter-spacing: var(--kpost-letter-spacing-0);
+}
+@media (max-width: 767px) {
+  .main-tit-wrap .tit {
+    font-size: var(--kpost-number-11);
+    letter-spacing: var(--kpost-letter-spacing-1);
+  }
 }
 .main-container .ico {
   display: flex;
@@ -800,6 +814,11 @@
 /* main-visual */
 .main-vb-wrap {
   margin-top: var(--kpost-gap-9);
+}
+@media (max-width: 767px) {
+  .main-vb-wrap {
+    margin-top: var(--kpost-gap-5);
+  }
 }
 .main-vb-wrap .inner {
   display: flex;
@@ -825,11 +844,21 @@
   padding: var(--kpost-padding-card-md);
   border-radius: var(--kpost-rd-6);
 }
+@media (max-width: 767px) {
+  .main-box-responsive > div {
+    gap: var(--kpost-gap-5);
+  }
+  .main-box-responsive .in {
+    padding: var(--kpost-padding-card-sm);
+  }
+}
+
 .main-box-responsive .in.outline {
   border: 0.1rem solid var(--kpost-gray-30);
 }
 .main-vb-wrap .main-box-responsive {
   min-height: 40.8rem;
+  gap: var(--kpost-gap-5);
 }
 
 .main-vb-wrap .d-auto .in {
@@ -864,6 +893,7 @@
 @media (max-width: 767px) {
   .main-vb-wrap .main-visual .mv-card {
     flex-direction: column;
+    gap: var(--kpost-gap-7);
   }
   .main-visual .vban-text {
     width: 100%;
@@ -876,6 +906,11 @@
 .main-visual .vban-text p {
   font-size: var(--kpost-fs-hd-xlg);
   font-weight: var(--kpost-fw-bold);
+}
+@media (max-width: 767px) {
+  .main-visual .vban-text p {
+    font-size: var(--kpost-fs-hd-lg);
+  }
 }
 .main-visual .img {
   flex-basis: 50%;
@@ -902,6 +937,7 @@
   font-weight: var(--kpost-fw-bold);
   height: var(--kpost-number-16);
   white-space: nowrap;
+  min-width: calc(100% / 2 - var(--kpost-gap-3));
 }
 
 /* 자주찾는 서비스 */
@@ -928,8 +964,17 @@
   justify-content: space-between;
   gap: var(--kpost-gap-5);
 }
+
 .main-vb-wrap .d-fix .quick-link li {
   width: calc(100% / 3 - var(--kpost-gap-5));
+}
+@media (max-width: 767px) {
+  .main-vb-wrap .d-fix .quick-link {
+    gap: var(--kpost-gap-5) var(--kpost-gap-3);
+  }
+  .main-vb-wrap .d-fix .quick-link li {
+    width: calc(100% / 3 - var(--kpost-gap-3));
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .main-vb-wrap .d-fix .quick-link li {
@@ -949,6 +994,12 @@
   height: 9.6rem;
   background-color: var(--kpost-gray-10);
   border-radius: 24px;
+}
+@media (max-width: 767px) {
+  .main-vb-wrap .d-fix .quick-link a .ico {
+    width: 7.6rem;
+    height: 7.6rem;
+  }
 }
 .main-vb-wrap .d-fix .quick-link a .ico::after {
   width: var(--kpost-number-14);
@@ -973,13 +1024,8 @@
   background: url(../images/ico_mainquick06.svg) no-repeat center / contain;
 }
 .main-vb-wrap .d-fix .quick-link a .text {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   width: 100%;
-  padding: 0 var(--kpost-padding-2);
+
   text-align: center;
   font-weight: var(--kpost-fw-bold);
   color: var(--kpost-gray-80);
@@ -1028,6 +1074,11 @@
     gap: var(--kpost-gap-7);
   }
 }
+@media (max-width: 768px) {
+  .main-cs-wrap {
+    padding: var(--kpost-padding-card-sm);
+  }
+}
 .main-cs-wrap .main-tit-wrap .desc {
   display: inline-flex;
   align-items: center;
@@ -1056,6 +1107,7 @@
 @media (max-width: 767px) {
   .main-cs-wrap .biz-time {
     flex-direction: column;
+    gap: var(--kpost-gap-6);
   }
 }
 .main-cs-wrap .biz-time li {
@@ -1082,6 +1134,7 @@
 @media (max-width: 1024px) {
   .main-cs-wrap .biz-time {
     width: 100%;
+    padding-bottom: 2.4rem;
   }
   .main-cs-wrap .biz-time li {
     padding: 0;
@@ -1089,6 +1142,11 @@
   }
   .main-cs-wrap .biz-time li::before {
     display: none;
+  }
+}
+@media (max-width: 767px) {
+  .main-cs-wrap .biz-time li {
+    width: 100%;
   }
 }
 .main-cs-wrap .biz-time .ico {
