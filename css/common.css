@@ -274,7 +274,6 @@ body {
   line-height: var(--kpost-line-height-base);
   word-break: keep-all;
   word-wrap: break-word;
-  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
 }
 html {
@@ -502,7 +501,6 @@ textarea {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 input[type="number"] {
@@ -1290,7 +1288,6 @@ input[type="checkbox"] {
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
