@@ -636,12 +636,22 @@
     padding: 0 var(--kpost-padding-6);
   }
 }
+
 #footer .foot-quick .inner > ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--kpost-gap-3);
   height: var(--kpost-number-17);
+}
+@media (max-width: 768px) {
+  #footer .foot-quick .inner {
+    gap: var(--kpost-gap-5);
+    padding: var(--kpost-padding-6);
+  }
+  #footer .foot-quick .inner > ul {
+    height: auto;
+  }
 }
 #footer > .inner {
   display: flex;
@@ -748,6 +758,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   padding-top: var(--kpost-padding-8);
   gap: var(--kpost-gap-9);
@@ -762,8 +773,37 @@
 #footer .f-btm img {
   width: 80px;
 }
-
-/* main */
+/* 위로가기 */
+.page-top-button {
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: var(--kpost-rd-3);
+  border: 0.1rem solid var(--kpost-gray-30);
+  background-color: var(--kpost-white);
+  box-shadow: 0px 0px 2px 0px #0000000d, 0px 4px 8px 0px #00000014;
+  position: fixed;
+  right: 4rem;
+  bottom: 6.4rem;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+}
+.page-top-button.active {
+  z-index: 60;
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 1023px) {
+  .page-top-button {
+    right: 1.6rem;
+    bottom: 1.6rem;
+  }
+}
+/* ------------------------------------------------- main -------------------------------------------------  */
 /* main-basic */
 .main-sec-t {
   margin-top: var(--kpost-gap-11);
@@ -937,9 +977,19 @@
   font-weight: var(--kpost-fw-bold);
   height: var(--kpost-number-16);
   white-space: nowrap;
-  min-width: calc(100% / 2 - var(--kpost-gap-3));
 }
-
+@media (max-width: 1024px) {
+  .main-vb-wrap .main-d-links .btn {
+    min-width: calc(100% / 2 - var(--kpost-gap-3));
+    white-space: normal;
+  }
+}
+@media (max-width: 767px) {
+  .main-vb-wrap .main-d-links .btn span {
+    font-size: var(--kpost-fs-sm);
+    line-height: 1.25;
+  }
+}
 /* 자주찾는 서비스 */
 .main-vb-wrap .d-fix {
   flex: unset;
@@ -1092,6 +1142,7 @@
   font-size: var(--kpost-fs-sm);
   line-height: 1;
   width: 100%;
+  white-space: nowrap;
 }
 @media (max-width: 1024px) {
   .main-cs-wrap .main-tit-wrap {
@@ -1107,7 +1158,7 @@
 @media (max-width: 767px) {
   .main-cs-wrap .biz-time {
     flex-direction: column;
-    gap: var(--kpost-gap-6);
+    gap: var(--kpost-gap-8);
   }
 }
 .main-cs-wrap .biz-time li {
@@ -1181,7 +1232,6 @@
 .main-cs-wrap .biz-time li .help-info {
   display: inline-flex;
   gap: var(--kpost-gap-2);
-
   margin-bottom: -2.8rem;
   font-size: var(--kpost-fs-sm);
 }
@@ -1190,12 +1240,28 @@
   width: var(--kpost-icon--sm);
   height: var(--kpost-icon--sm);
 }
+
+@media (max-width: 767px) {
+  .main-cs-wrap .biz-time {
+    padding-bottom: 4rem;
+  }
+  .main-cs-wrap .biz-time li .help-info {
+    margin-bottom: -5.2rem;
+  }
+}
+
 /* -------------------- 소식 --------------------  */
 .main-noti-wrap > div {
   width: calc(100% / 2 - var(--kpost-gap-7));
   max-width: 50%;
 }
+.main-noti-wrap > div > div:not(.main-tit-wrap) {
+  height: 39rem;
+}
 @media (max-width: 1024px) {
+  .main-box-responsive.main-noti-wrap {
+    gap: var(--kpost-gap-9);
+  }
   .main-noti-wrap > div {
     width: 100%;
     max-width: unset;
@@ -1250,6 +1316,28 @@
   top: 4.4rem;
   right: 4rem;
 }
+@media (max-width: 767px) {
+  .main-board .btn-tab {
+    font-size: var(--kpost-fs-md);
+  }
+  .main-noti-wrap > div > div:not(.main-tit-wrap) {
+    height: auto;
+  }
+  .main-board .news-tbl-list {
+    gap: var(--kpost-gap-2);
+  }
+  .main-board .news-tbl-list li {
+    gap: var(--kpost-gap-3);
+  }
+
+  .main-board .more {
+    position: relative;
+    top: unset;
+    right: unset;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
 /* 알림 배너 */
 .main-popup-ban {
   position: relative;
@@ -1277,14 +1365,13 @@
   border: 0.1rem solid var(--kpost-alpha-black10);
   border-radius: var(--kpost-rd-6);
 }
-.main-noti-wrap > div > div:not(.main-tit-wrap) {
-  height: 39rem;
-}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .main-noti-wrap > div > div.vb-swiper {
     height: 28rem;
   }
 }
+
 /* 지방우정청 바로가기 */
 .post-find-wrap {
   padding: var(--kpost-gap-11) 0;
@@ -1355,6 +1442,12 @@
   padding: var(--kpost-padding-card-md);
   height: 100%;
 }
+
+@media (max-width: 767px) {
+  .tab_ps_list > * {
+    padding: var(--kpost-padding-card-sm);
+  }
+}
 .tab_ps_list .tab {
   display: flex;
   align-items: flex-start;
@@ -1389,10 +1482,22 @@
   .tab_ps_list .tab > ul {
     flex-direction: row;
     gap: var(--kpost-gap-2);
-    height: 138px;
+    height: 13.8rem;
   }
   .tab_ps_list .tab li {
     width: calc(100% / 4 - var(--kpost-gap-2));
+  }
+}
+@media (max-width: 768px) {
+  .tab_ps_list .tab > ul {
+    height: 20rem;
+    gap: var(--kpost-gap-4);
+  }
+  .tab_ps_list .tab li {
+    width: calc(100% / 2 - var(--kpost-gap-4));
+  }
+  .tab .btn-tab {
+    height: 4rem;
   }
 }
 .tab_ps_list h3.tit {
@@ -1517,6 +1622,11 @@
     padding: var(--kpost-padding-card-xsm);
   }
 }
+@media (max-width: 768px) {
+  .tab_ps_list .structured-list {
+    grid-template-columns: 1fr;
+  }
+}
 .tab_ps_list .structured-list > li:hover {
   border: 0.1rem solid var(--kpost-gray-20);
   box-shadow: 0rem 0.4rem 0.8rem 0.4rem rgba(0, 0, 0, 0.08);
@@ -1539,7 +1649,11 @@
   font-size: var(--kpost-fs-lg);
   font-weight: var(--kpost-fw-bold);
 }
-
+@media (max-width: 767px) {
+  .tab_ps_list .structured-list .tit {
+    font-size: var(--kpost-fs-md);
+  }
+}
 .tab_ps_list .structured-list .desc {
   padding: var(--kpost-padding-2);
 

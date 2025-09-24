@@ -880,7 +880,32 @@ const krds_dropEvent = {
     });
   },
 };
+// goTopBtn
+const goTopBtn = () => {
+  const contentArea = document.querySelector("#wrap");
+  if (contentArea) {
+    const goTopTag = document.createElement("button");
+    goTopTag.className = "page-top-button";
+    goTopTag.type = "button";
+    goTopTag.innerHTML = `<i class="icon ico-to-top"></i>`;
+    goTopTag.setAttribute("data-tooltip", "페이지 상단으로 이동");
+    contentArea.append(goTopTag);
 
+    const home = contentArea.querySelector("#container > *");
+    const toggleVisibility = () => {
+      goTopTag.classList.toggle(
+        "active",
+        window.scrollY > window.innerHeight * 1.5
+      );
+    };
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      home?.focus();
+    };
+    window.addEventListener("scroll", toggleVisibility);
+    goTopTag.addEventListener("click", scrollToTop);
+  }
+};
 // 초기 이벤트
 window.addEventListener("DOMContentLoaded", () => {
   // 윈도우 사이즈 체크
@@ -889,6 +914,7 @@ window.addEventListener("DOMContentLoaded", () => {
   krds_mainMenuMobile.init();
   krds_tab.init();
   krds_dropEvent.init();
+  goTopBtn();
 });
 
 // 스크롤 이벤트

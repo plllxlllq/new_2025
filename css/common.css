@@ -599,6 +599,7 @@ caption {
   width: var(--kpost-icon--lg);
   height: var(--kpost-icon--lg);
   forced-color-adjust: none;
+  flex-shrink: 0;
 }
 
 .icon[class*="ico-"] {
@@ -644,6 +645,10 @@ caption {
 .icon.ico-youtube {
   background-image: url(../images/foot_sns_youtube.svg);
 }
+.icon.ico-to-top {
+  background-image: url(../images/ico_btn-shortcut.svg);
+  transform: rotate(-90deg);
+}
 
 /* 반응형 레이아웃 */
 .inner {
@@ -659,7 +664,7 @@ caption {
 }
 @media (max-width: 767px) {
   body {
-    font-size: var(--kpost-fs-md);
+    font-size: var(--kpost-fs-sm);
   }
   .pc-only {
     display: none !important;
