@@ -104,18 +104,22 @@
 							<h1 class="logo">
 								<a href="/se/index.do" target="_top"><span class="sr-only">서울지방우정청</span></a>
 							</h1>
-							<div class="header-search">
-								<div class="sch-input">
-									<input type="text" class="input " placeholder="검색어를 입력해주세요." value=""
-										title="검색어 입력">
-									<button type="button" class="btn icon md ico-search">
-										<span class="sr-only">검색</span>
-										<i class="icon ico-sch"></i>
-									</button>
+							<div class="header-action">
+								<div class="header-search">
+									<div class="sch-input">
+										<input type="text" class="input " placeholder="검색어를 입력해주세요." value=""
+											title="검색어 입력">
+										<button type="button" class="btn icon md ico-search">
+											<span class="sr-only">검색</span>
+											<i class="icon ico-sch"></i>
+										</button>
+									</div>
 								</div>
+								<!-- // header-search  -->
+
+								<button type="button" class="btn-navi all" aria-controls="mobile-nav">전체메뉴</button>
+
 							</div>
-							<button type="button" class="btn-navi all" aria-controls="mobile-nav">전체메뉴</button>
-							<!-- // header-search  -->
 						</div>
 					</div>
 					<!-- // logo-area  -->
@@ -746,7 +750,7 @@
 												</a>
 											</h3>
 										</div>
-										<ul role="tablist">
+										<ul role="tablist" class="scroll_ap_no">
 											<li id="tab_rg1_1" aria-selected="true" aria-controls="rg1_panel_1"
 												class="active">
 												<button type="button" class="btn-tab">광화문우체국</button>
@@ -857,7 +861,7 @@
 												</h4>
 											</div>
 											<div class="post-list scroll-wrap">
-												<div class="in">
+												<div class="in scroll_ap_no">
 													<ul class="structured-list">
 														<li class="structured-item">
 															<div class="card-top">
@@ -1379,11 +1383,23 @@
 			spaceBetween: 16,
 			speed: 700,
 			loop: true,
+			breakpoints: {
+				100: {
+					slidesPerView: 1
+				},
+				767: {
+					slidesPerView: 2
+				},
+				1025: {
+					slidesPerView: 1
+				}
+			},
 			autoplay: {
 				delay: 2500,
 				disableOnInteraction: false,
 				pauseOnMouseEnter: true,
 			},
+
 			navigation: {
 				nextEl: '.vb-swiper .swiper-button-next',
 				prevEl: '.vb-swiper .swiper-button-prev',
