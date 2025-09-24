@@ -716,7 +716,13 @@ caption {
     line-height: inherit;
   }
 }
-
+@media (max-width: 360px) {
+  body,
+  .inner {
+    min-width: 320px;
+    overflow: auto;
+  }
+}
 /* skipNavi */
 #skipNavi {
   position: absolute;

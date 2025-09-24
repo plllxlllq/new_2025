@@ -1246,7 +1246,6 @@
   border-radius: var(--kpost-rd-3);
   font-size: var(--kpost-fs-sm);
   line-height: 1;
-  width: 100%;
   white-space: nowrap;
 }
 @media (max-width: 1024px) {
@@ -1255,6 +1254,11 @@
     flex-wrap: wrap;
     align-items: center;
     gap: var(--kpost-gap-4);
+  }
+}
+@media (max-width: 360px) {
+  .main-cs-wrap .main-tit-wrap .desc {
+    width: 100%;
   }
 }
 .main-cs-wrap .biz-time {
@@ -1553,8 +1557,12 @@
     height: auto;
   }
 }
-/* 작은 모바일기기 select*/
-
+@media (max-width: 390px) {
+  .tab_region .tab.fill .btn-tab {
+    height: 3.6rem;
+    font-size: 1.5rem;
+  }
+}
 @media (max-width: 360px) {
   .tab_region > .tab > ul > li {
     width: calc(100% / 2 - var(--kpost-gap-3));
@@ -1626,6 +1634,11 @@
   }
   .tab .btn-tab {
     height: 4rem;
+  }
+}
+@media (max-width: 390px) {
+  .tab_ps_list .tab li {
+    width: 100%;
   }
 }
 @media (max-width: 360px) {
