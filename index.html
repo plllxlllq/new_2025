@@ -32,15 +32,98 @@
 	<!-- script -->
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/swiper-bundle.min.js"></script>
-	<script src="js/common.js"></script>
+
 
 
 </head>
 
 <body>
-	<div class="layer-pop">
+	<!-- 메인팝업 레이어  -->
+	<div class="layer-popup">
+		<div class="inner">
+			<div class="in">
+				<div class="popup-wrap">
+					<div class="popup-body">
+						<div class="popup-swiper">
+							<div class="popup-top">
+								<div class="title">팝업존</div>
+								<div class="swiper-indicator">
+									<div
+										class="swiper-pagination swiper-pagination-fraction swiper-pagination-horizontal">
+										<span class="swiper-pagination-current">1</span> /
+										<span class="swiper-pagination-total">2</span>
+									</div>
+									<div class="swiper-controller">
+										<button type="button" class="swiper-button-play" style="display: none;">
+											<span class="sr-only">슬라이드 재생</span>
+										</button>
+										<button type="button" class="swiper-button-stop">
+											<span class="sr-only">슬라이드 멈춤</span>
+										</button>
+									</div>
+									<div class="swiper-navigation">
+										<button type="button" class="swiper-button-prev">
+											<span class="sr-only">이전</span>
+										</button>
+										<button type="button" class="swiper-button-next">
+											<span class="sr-only">다음</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="swiper">
+								<ul class="swiper-wrapper">
+									<li class="swiper-slide">
+										<a href="https://www.mois.go.kr/html/taegeukgi/10.html" target="_blank"
+											title="새 창 열기"><img
+												src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250922133858460720.png"
+												alt="10월 태극기 달기 국군의 날(10.1), 개천절(10.3), 한글날(10.9)을 경축하며, 우리모두 나라를 사랑하는 마음으로 집집마다 태극기를 답시다. 행정안전부"></a>
+									</li>
+									<li class="swiper-slide"><a
+											href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094122.do"
+											target="_blank" title="새 창 열기"><img
+												src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250919095958715931.jpg"
+												alt="행정안전부 우체국 예금 2025년 새정부 추경예산, 회복과 성장의 마중물 민생회복 소비쿠폰은 우체국 체크카드와 함께 - 포인트, 캐시백 등 카드혜택은 그대로(전월 실적으로 포함) -2차: 2025. 9.22.(월) ~ 10.31.(금)"></a>
+									</li>
+									<li class="swiper-slide">
+										<a href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094028.do"
+											target="_blank" title="새 창 열기">
+											<img src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250915163851008529.png"
+												alt="[지방세 납부 경품 이벤트]
+															잇다뱅킹으로 지방세 납부하세 시즌2
 
+															이벤트 기간 : 2025.7월 ~ 9월(월별 진행)
+															3회차: 2025.9.16. ~ 9.30.
+															*사용된 이미지는 생성형 AI(ChatGPT)를 통해 제작되었습니다.">
+										</a>
+									</li>
+									<li class="swiper-slide">
+										<a href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100093903.do"
+											target="_blank" title="새 창 열기"><img
+												src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250909160220356578.jpg"
+												alt="9. 8. (월) ~ 10. 12. (일) / 혜택 도착했달 우체국쇼핑 추석 선물대전"></a>
+									</li>
+								</ul>
+							</div>
+
+
+						</div>
+					</div>
+					<div class="popup-close ">
+						<div class="check-area">
+							<span class="form-check">
+								<input type="checkbox" id="todayClose">
+								<label for="todayClose">오늘 하루 열지 않기</label>
+							</span>
+						</div>
+						<button type="button" class="btn sm btn-popup-close">팝업
+							닫기 <i class="icon ico-popup-close-white"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- // 메인팝업 레이어 -->
 	<div id="wrap">
 		<!-- 본문 바로가기 영역  -->
 		<div id="skipNavi">
@@ -140,10 +223,13 @@
 								<div class="gnb-toggle-wrap">
 									<h2 class="sub-title">소식</h2>
 									<ul>
-										<li><a href="#"><span class="text">공지사항</span></a></li>
-										<li><a href="#"><span class="text">일반공고</span></a></li>
-										<li><a href="#"><span class="text">행정정보공개방</span></a></li>
-										<li><a href="#"><span class="text">민원신청·칭찬</span></a></li>
+										<li><a href="/se/subIndex/1470.do"><span class="text">공지사항</span></a></li>
+										<li><a href="/user/bbs/se/94/1471/bbsDataList.do"><span
+													class="text">일반공고</span></a></li>
+										<li><a href="/kpost/subIndex/289.do" target="_blank" title="새 창 열림"><span
+													class="text">민원신청ㆍ칭찬</span></a></li>
+										<li><a href="/user/bbs/se/223/4318/bbsDataList.do"><span
+													class="text">행정정보공개방</span></a></li>
 									</ul>
 								</div>
 								<!-- //gnb-toggle-wrap -->
@@ -155,12 +241,21 @@
 								<div class="gnb-toggle-wrap">
 									<h2 class="sub-title">채용</h2>
 									<ul>
-										<li><a href="#"><span class="text">채용공고</span></a></li>
-										<li><a href="#"><span class="text">집배원 채용공고</span></a></li>
-										<li><a href="#"><span class="text">시험자료</span></a></li>
-										<li><a href="#"><span class="text">FAQ</span></a></li>
-										<li><a href="#"><span class="text">채용문의</span></a></li>
-										<li><a href="#"><span class="text">자료실</span></a></li>
+										<li><a
+												href="/user/extra/se/95/1472/bbs/recnotice/recNoticeList/jsp/ExtraUser.do"><span
+													class="text">채용공고</span></a></li>
+										<li><a href="javascript:void(0);"><span class="text">집배원 채용공고</span></a></li>
+										<li><a
+												href="/user/extra/se/329/5429/bbs/recTestFile/recTestFileList/jsp/ExtraUser.do"><span
+													class="text">시험자료</span></a></li>
+										<li><a href="/user/extra/se/325/5430/bbs/recFaq/recFaqList/jsp/ExtraUser.do"><span
+													class="text">FAQ</span></a></li>
+										<li><a
+												href="/user/extra/se/107/1514/bbs/commonInquire/commonInquireList/jsp/ExtraUser.do"><span
+													class="text">채용문의</span></a></li>
+										<li><a href="/user/bbs/se/148/1513/bbsDataList.do"><span
+													class="text">자료실</span></a></li>
+
 									</ul>
 								</div>
 								<!-- //gnb-toggle-wrap -->
@@ -172,8 +267,8 @@
 								<div class="gnb-toggle-wrap ">
 									<h2 class="sub-title">조직</h2>
 									<ul>
-										<li><a href="#"><span class="text">조직/부서안내</span></a></li>
-										<li><a href="#"><span class="text">총괄우체국</span></a></li>
+										<li><a href="/se/subIndex/1469.do"><span class="text">조직/부서안내</span></a></li>
+										<li><a href="/se/subIndex/1476.do"><span class="text">총괄우체국</span></a></li>
 									</ul>
 								</div>
 								<!-- //gnb-toggle-wrap -->
@@ -186,9 +281,10 @@
 									<div class="gnb-sub-content">
 										<h2 class="sub-title">소개</h2>
 										<ul>
-											<li><a href="#"><span class="text">지방우정청소개</span></a></li>
-											<li><a href="#"><span class="text">기관장소개</span></a></li>
-											<li><a href="#"><span class="text">찾아오시는길</span></a></li>
+											<li><a href="/se/subIndex/1478.do"><span class="text">지방우정청소개</span></a>
+											</li>
+											<li><a href="/se/subIndex/1480.do"><span class="text">기관장소개</span></a></li>
+											<li><a href="/se/subIndex/1475.do"><span class="text">찾아오시는길</span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -283,37 +379,49 @@
 								<div class="gnb-sub-list" id="mGnb-anchor1">
 									<h2 class="sub-title">소식</h2>
 									<ul>
-										<li><a href="#" class="gnb-sub-trigger">공지사항</a></li>
-										<li><a href="#" class="gnb-sub-trigger">일반공고</a></li>
-										<li><a href="#" class="gnb-sub-trigger">행정정보공개방</a></li>
-										<li><a href="#" class="gnb-sub-trigger">민원신청·칭찬</a></li>
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1470.do">공지사항</a></li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/bbs/se/94/1471/bbsDataList.do">일반공고</a></li>
+										<li><a class="gnb-sub-trigger" href="/kpost/subIndex/289.do" target="_blank"
+												title="새 창 열림">민원신청ㆍ칭찬</a></li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/bbs/se/223/4318/bbsDataList.do">행정정보공개방</a></li>
 									</ul>
 								</div>
 								<div class="gnb-sub-list" id="mGnb-anchor2">
 									<h2 class="sub-title">채용</h2>
 									<ul>
-										<li><a href="#" class="gnb-sub-trigger">채용공고</a></li>
-										<li><a href="#" class="gnb-sub-trigger">집배원 채용공고</a></li>
-										<li><a href="#" class="gnb-sub-trigger">시험자료</a></li>
-										<li><a href="#" class="gnb-sub-trigger">FAQ</a></li>
-										<li><a href="#" class="gnb-sub-trigger">채용문의</a></li>
-										<li><a href="#" class="gnb-sub-trigger">자료실</a></li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/extra/se/95/1472/bbs/recnotice/recNoticeList/jsp/ExtraUser.do">채용공고</a>
+										</li>
+										<li><a class="gnb-sub-trigger" href="javascript:void(0);"
+												class="gnb-sub-trigger">집배원 채용공고</a></li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/extra/se/329/5429/bbs/recTestFile/recTestFileList/jsp/ExtraUser.do">시험자료</a>
+										</li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/extra/se/325/5430/bbs/recFaq/recFaqList/jsp/ExtraUser.do">FAQ</a>
+										</li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/extra/se/107/1514/bbs/commonInquire/commonInquireList/jsp/ExtraUser.do">채용문의</a>
+										</li>
+										<li><a class="gnb-sub-trigger"
+												href="/user/bbs/se/148/1513/bbsDataList.do">자료실</a></li>
 									</ul>
 								</div>
 								<div class="gnb-sub-list" id="mGnb-anchor3">
 									<h2 class="sub-title">조직</h2>
 									<ul>
-										<li><a href="#" class="gnb-sub-trigger">조직/부서안내</a></li>
-										<li><a href="#" class="gnb-sub-trigger">총괄우체국</a></li>
-
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1469.do">조직/부서안내</a></li>
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1476.do">총괄우체국</a></li>
 									</ul>
 								</div>
 								<div class="gnb-sub-list" id="mGnb-anchor4">
 									<h2 class="sub-title">소개</h2>
 									<ul>
-										<li><a href="#" class="gnb-sub-trigger">지방우정청소개</a></li>
-										<li><a href="#" class="gnb-sub-trigger">기관장소개</a></li>
-										<li><a href="#" class="gnb-sub-trigger">찾아오시는길</a></li>
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1478.do">지방우정청소개</a></li>
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1480.do">기관장소개</a></li>
+										<li><a class="gnb-sub-trigger" href="/se/subIndex/1475.do">찾아오시는길</a></li>
 									</ul>
 								</div>
 
@@ -358,13 +466,14 @@
 									</div>
 								</div>
 								<div class="main-d-links d-row">
-									<a href="#" class="btn md text"><span>기관장 소개</span> <i
+									<a href="/se/subIndex/1480.do" class="btn md text"><span>기관장 소개</span> <i
 											class="icon ico-more"></i></a>
-									<a href="#" class="btn md text"><span>조직/부서 안내</span> <i
+									<a href="/se/subIndex/1469.do" class="btn md text"><span>조직/부서 안내</span> <i
 											class="icon ico-more"></i></a>
-									<a href="#" class="btn md text" target="_blank" title="클릭시 새창열림"><span>총괄우체국</span>
-										<i class="icon ico-go"></i></a>
-									<a href="#" class="btn md text" target="_blank" title="클릭시 새창열림"><span>우체국/우체통
+									<a href="/se/subIndex/1476.do" class="btn md text"><span>총괄우체국</span>
+										<i class="icon ico-more"></i></a>
+									<a href="https://www.koreapost.go.kr/extra/user/kpost/gps/gpsUserView.do"
+										class="btn md text" target="_blank" title="클릭시 새창열림"><span>우체국/우체통
 											찾기</span> <i class="icon ico-go"></i></a>
 								</div>
 							</div>
@@ -377,37 +486,40 @@
 
 								<ul class="quick-link">
 									<li>
-										<a href="#">
+										<a href="https://www.koreapost.go.kr/" target="_blank" title="클릭시 새창열림">
 											<span class="ico i1"></span>
 											<p class="text">배송조회</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://www.koreapost.go.kr/" target="_blank" title="클릭시 새창열림">
 											<span class="ico i2"></span>
 											<p class="text">우편번호찾기</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://www.koreapost.go.kr/" target="_blank" title="클릭시 새창열림">
 											<span class="ico i3"></span>
 											<p class="text">우편요금안내</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://mall.epost.go.kr/fo/main/main.do" target="_blank"
+											title="클릭시 새창열림">
 											<span class="ico i4"></span>
 											<p class="text">우체국쇼핑</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://parcel.epost.go.kr/auth.EpostLogin.parcel" target="_blank"
+											title="클릭시 새창열림">
 											<span class="ico i5"></span>
 											<p class="text">우편서비스</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="https://www.epostbank.go.kr/IHDMDM0000.do" target="_blank"
+											title="클릭시 새창열림">
 											<span class="ico i6"></span>
 											<p class="text">우체국금융</p>
 										</a>
@@ -484,37 +596,42 @@
 											<h3 class="sr-only">공지</h3>
 											<ul class="news-tbl-list">
 												<li>
-													<a href="#" class="tit">
-														1서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094191"
+														class="tit">
+														국유재산 내 무단적치물품 자진철거 명령 공시송달 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														1서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094163"
+														class="tit">
+														서울도봉우체국 반송불능(유가물) 보관 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														1서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094122"
+														class="tit">
+														우체국 체크카드, 민생회복 소비쿠폰 2차 지급 안내
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														1서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094097"
+														class="tit">
+														(서울마포우체국공고 제2025-37호) 환부불능 유가우편물 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														1서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094028"
+														class="tit">
+														잇다뱅킹으로 지방세 납부하세 시즌2(3회차)
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 											</ul>
-											<a href="#none" class="more btn text md" title="공지 더보기"><span
+											<a href="/se/subIndex/1470.do" class="more btn text md" title="공지 더보기"><span
 													class="sr-only">공지</span>더보기 <i class="icon ico-more-plus"></i></a>
 										</section>
 										<!-- // newsTabpanel01 -->
@@ -523,32 +640,44 @@
 											<h3 class="sr-only">공고</h3>
 											<ul class="news-tbl-list">
 												<li>
-													<a href="#" class="tit">
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094191"
+														class="tit">
+														2국유재산 내 무단적치물품 자진철거 명령 공시송달 공고
+													</a>
+													<span class="date">2025-07-14</span>
+												</li>
+												<li>
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094163"
+														class="tit">
 														2서울도봉우체국 반송불능(유가물) 보관 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														2서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094122"
+														class="tit">
+														2우체국 체크카드, 민생회복 소비쿠폰 2차 지급 안내
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														2서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094097"
+														class="tit">
+														2(서울마포우체국공고 제2025-37호) 환부불능 유가우편물 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														2서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094028"
+														class="tit">
+														2잇다뱅킹으로 지방세 납부하세 시즌2(3회차)
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 											</ul>
-											<a href="#none" class="more btn text md" title="공고 더보기"><span
-													class="sr-only">공고</span>더보기 <i class="icon ico-more-plus"></i></a>
+											<a href="/user/bbs/se/94/1471/bbsDataList.do" class="more btn text md"
+												title="공고 더보기"><span class="sr-only">공고</span>더보기 <i
+													class="icon ico-more-plus"></i></a>
 										</section>
 										<!-- // newsTabpanel02 -->
 
@@ -557,31 +686,43 @@
 											<h3 class="sr-only">채용</h3>
 											<ul class="news-tbl-list">
 												<li>
-													<a href="#" class="tit">
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094191"
+														class="tit">
+														3국유재산 내 무단적치물품 자진철거 명령 공시송달 공고
+													</a>
+													<span class="date">2025-07-14</span>
+												</li>
+												<li>
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094163"
+														class="tit">
 														3서울도봉우체국 반송불능(유가물) 보관 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														3서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094122"
+														class="tit">
+														3우체국 체크카드, 민생회복 소비쿠폰 2차 지급 안내
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														3서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094097"
+														class="tit">
+														3(서울마포우체국공고 제2025-37호) 환부불능 유가우편물 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														3서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094028"
+														class="tit">
+														3잇다뱅킹으로 지방세 납부하세 시즌2(3회차)
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 											</ul>
-											<a href="#none" class="more btn text md" title="채용 더보기"><span
+											<a href="/user/extra/se/95/1472/bbs/recnotice/recNoticeList/jsp/ExtraUser.do"
+												class="more btn text md" title="채용 더보기"><span
 													class="sr-only">채용</span>더보기 <i class="icon ico-more-plus"></i></a>
 										</section>
 										<!-- // newsTabpanel03 -->
@@ -591,32 +732,43 @@
 											<h3 class="sr-only">집배원 채용</h3>
 											<ul class="news-tbl-list">
 												<li>
-													<a href="#" class="tit">
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094191"
+														class="tit">
+														4국유재산 내 무단적치물품 자진철거 명령 공시송달 공고
+													</a>
+													<span class="date">2025-07-14</span>
+												</li>
+												<li>
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094163"
+														class="tit">
 														4서울도봉우체국 반송불능(유가물) 보관 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														4서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094122"
+														class="tit">
+														4우체국 체크카드, 민생회복 소비쿠폰 2차 지급 안내
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														4서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094097"
+														class="tit">
+														4(서울마포우체국공고 제2025-37호) 환부불능 유가우편물 공고
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 												<li>
-													<a href="#" class="tit">
-														4서울도봉우체국 반송불능(유가물) 보관 공고
+													<a href="/user/extra/se/1470/Userbbs_04/bbsview/jsp/LayOutPage.do?bbsSetIdx=98&column=&search=&spage=1&bbsDataIdx=100094028"
+														class="tit">
+														4잇다뱅킹으로 지방세 납부하세 시즌2(3회차)
 													</a>
 													<span class="date">2025-07-14</span>
 												</li>
 											</ul>
-											<a href="#none" class="more btn text md" title=">집배원 채용 더보기"><span
-													class="sr-only">집배원
+											<a href="/postman/sub/sub0201_list.do" class="more btn text md"
+												title=">집배원 채용 더보기"><span class="sr-only">집배원
 													채용</span>더보기 <i class="icon ico-more-plus"></i></a>
 										</section>
 										<!-- // newsTabpanel04 -->
@@ -637,16 +789,16 @@
 								<div class="swiper">
 									<ul class="swiper-wrapper">
 										<li class="swiper-slide">
-											<a href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094028.do"
-												target="_blank" title="새 창 열기">
-												<img src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250915163851008529.png"
-													alt="[지방세 납부 경품 이벤트]
-													잇다뱅킹으로 지방세 납부하세 시즌2
-
-													이벤트 기간 : 2025.7월 ~ 9월(월별 진행)
-													3회차: 2025.9.16. ~ 9.30.
-													*사용된 이미지는 생성형 AI(ChatGPT)를 통해 제작되었습니다.">
-											</a>
+											<a href="https://www.mois.go.kr/html/taegeukgi/10.html" target="_blank"
+												title="새 창 열기"><img
+													src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250922133858460720.png"
+													alt="10월 태극기 달기 국군의 날(10.1), 개천절(10.3), 한글날(10.9)을 경축하며, 우리모두 나라를 사랑하는 마음으로 집집마다 태극기를 답시다. 행정안전부"></a>
+										</li>
+										<li class="swiper-slide"><a
+												href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094122.do"
+												target="_blank" title="새 창 열기"><img
+													src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250919095958715931.jpg"
+													alt="행정안전부 우체국 예금 2025년 새정부 추경예산, 회복과 성장의 마중물 민생회복 소비쿠폰은 우체국 체크카드와 함께 - 포인트, 캐시백 등 카드혜택은 그대로(전월 실적으로 포함) -2차: 2025. 9.22.(월) ~ 10.31.(금)"></a>
 										</li>
 										<li class="swiper-slide">
 											<a href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100094028.do"
@@ -659,6 +811,12 @@
 													3회차: 2025.9.16. ~ 9.30.
 													*사용된 이미지는 생성형 AI(ChatGPT)를 통해 제작되었습니다.">
 											</a>
+										</li>
+										<li class="swiper-slide">
+											<a href="https://www.koreapost.go.kr/user/bbs/kpost/98/164/bbsDataView/100093903.do"
+												target="_blank" title="새 창 열기"><img
+													src="https://www.koreapost.go.kr/site/se/upload/visual/14/20250909160220356578.jpg"
+													alt="9. 8. (월) ~ 10. 12. (일) / 혜택 도착했달 우체국쇼핑 추석 선물대전"></a>
 										</li>
 									</ul>
 								</div>
@@ -706,7 +864,7 @@
 					<!-- tab -->
 					<div class="tab-area layer tab_region">
 						<!-- tab list -->
-						<div class="tab fill">
+						<div class="tab fill ">
 							<ul role="tablist">
 								<li id="post_region_1" role="tab" aria-selected="true" aria-controls="panel_region_1"
 									class="active">
@@ -1382,57 +1540,9 @@
 	</div>
 	<!-- // wrap  -->
 
-	<script>
-		//비주얼 배너
 
-		const vbSwiper = new Swiper('.vb-swiper .swiper', {
-			slidesPerView: 1,
-			spaceBetween: 16,
-			speed: 700,
-			loop: true,
-			breakpoints: {
-				100: {
-					slidesPerView: 1
-				},
-				767: {
-					slidesPerView: 2
-				},
-				1025: {
-					slidesPerView: 1
-				}
-			},
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-				pauseOnMouseEnter: true,
-			},
+	<script src="js/main_renew.js"></script>
 
-			navigation: {
-				nextEl: '.vb-swiper .swiper-button-next',
-				prevEl: '.vb-swiper .swiper-button-prev',
-			},
-			pagination: {
-				el: ".vb-swiper .swiper-pagination",
-				type: "fraction",
-			},
-		});
-		const $vbSwiperPlay = document.querySelector('.vb-swiper .swiper-button-play');
-		const $vbSwiperStop = document.querySelector('.vb-swiper .swiper-button-stop');
-		$vbSwiperPlay.style.display = "none";
-		$vbSwiperPlay.addEventListener("click", () => {
-			vbSwiper.autoplay.start();
-			$vbSwiperStop.style.display = "";
-			$vbSwiperPlay.style.display = "none";
-		});
-		$vbSwiperStop.addEventListener("click", () => {
-			vbSwiper.autoplay.stop();
-			$vbSwiperStop.style.display = "none";
-			$vbSwiperPlay.style.display = "";
-		});
-
-
-
-	</script>
 </body>
 
 </html>

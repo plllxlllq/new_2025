@@ -102,8 +102,8 @@ const common = {
   },
 };
 
-/*** * krds_mainMenuPC * ***/
-const krds_mainMenuPC = {
+/*** * mainMenuPC * ***/
+const mainMenuPC = {
   init() {
     const gnbMenu = document.querySelector(".main-menu:not(.sample) .gnb-menu");
 
@@ -354,8 +354,8 @@ const krds_mainMenuPC = {
     });
   },
 };
-/*** * krds_mainMenuMobile * ***/
-const krds_mainMenuMobile = {
+/*** * mainMenuMobile * ***/
+const mainMenuMobile = {
   init() {
     const mobileGnb = document.querySelector(".main-menu-mobile");
 
@@ -652,8 +652,8 @@ const krds_mainMenuMobile = {
       });
   },
 };
-/*** * krds_tab * ***/
-const krds_tab = {
+/*** * basic_tab * ***/
+const basic_tab = {
   layerTabArea: null,
   init() {
     this.layerTabArea = document.querySelectorAll(".tab-area.layer");
@@ -745,8 +745,8 @@ const krds_tab = {
   },
 };
 
-/*** * krds_dropEvent(gnb utils / page-title-wrap) * ***/
-const krds_dropEvent = {
+/*** * dropEvent(gnb utils / page-title-wrap) * ***/
+const dropEvent = {
   dropButtons: null,
   init() {
     this.dropButtons = document.querySelectorAll(".drop-wrap .drop-btn");
@@ -885,7 +885,7 @@ const goTopBtn = () => {
   const contentArea = document.querySelector("#wrap");
   if (contentArea) {
     const goTopTag = document.createElement("button");
-    goTopTag.className = "page-top-button";
+    goTopTag.className = "page-totop";
     goTopTag.type = "button";
     goTopTag.innerHTML = `<i class="icon ico-to-top"></i>`;
     goTopTag.setAttribute("data-tooltip", "페이지 상단으로 이동");
@@ -906,25 +906,152 @@ const goTopBtn = () => {
     goTopTag.addEventListener("click", scrollToTop);
   }
 };
+
+// mainPopuplayer
+const mainPopuplayer = () => {
+  const popup = document.querySelector(".layer-popup");
+  const body = document.body;
+  const todayClose = document.getElementById("todayClose");
+  const closeBtn = document.querySelector(".btn.sm"); // 팝업 닫기 버튼
+  const popupKey = "popupClosedDate";
+
+  if (!popup) return; // 팝업이 없으면 실행 중단
+
+  // 오늘 하루 닫힘 확인
+  const savedDate = localStorage.getItem(popupKey);
+  const now = new Date();
+  const today = now.toISOString().slice(0, 10); // YYYY-MM-DD
+
+  if (savedDate === today) {
+    // 저장된 날짜가 오늘과 같으면 팝업 안 띄움
+    popup.style.display = "none";
+    body.classList.remove("haspop");
+    return;
+  }
+
+  // 팝업 보이기
+  popup.classList.add("on");
+  body.classList.add("haspop");
+
+  // 닫기 버튼 클릭 이벤트
+  closeBtn?.addEventListener("click", function () {
+    // 오늘 하루 닫기 체크되었으면 저장
+    if (todayClose.checked) {
+      localStorage.setItem(popupKey, today);
+    }
+
+    popup.classList.add("off");
+    body.classList.remove("haspop");
+    popup.style.display = "none";
+  });
+};
 // 초기 이벤트
 window.addEventListener("DOMContentLoaded", () => {
   // 윈도우 사이즈 체크
   windowSize.setWinSize();
-  krds_mainMenuPC.init();
-  krds_mainMenuMobile.init();
-  krds_tab.init();
-  krds_dropEvent.init();
+  mainMenuPC.init();
+  mainMenuMobile.init();
+  basic_tab.init();
+  dropEvent.init();
   goTopBtn();
+  mainPopuplayer();
 });
 
 // 스크롤 이벤트
 window.addEventListener("scroll", () => {
   scrollManager.updateScrollValues();
   scrollManager.handleScrollDirection();
-  krds_mainMenuPC.closeMainMenu();
+  mainMenuPC.closeMainMenu();
 });
 
 // 리사이즈 이벤트
 window.addEventListener("resize", () => {
   windowSize.setWinSize();
+});
+
+//메인 배너
+const vbSwiper = new Swiper(".vb-swiper .swiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  speed: 700,
+  loop: true,
+  breakpoints: {
+    100: {
+      slidesPerView: 1,
+    },
+    767: {
+      slidesPerView: 2,
+    },
+    1025: {
+      slidesPerView: 1,
+    },
+  },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+
+  navigation: {
+    nextEl: ".vb-swiper .swiper-button-next",
+    prevEl: ".vb-swiper .swiper-button-prev",
+  },
+  pagination: {
+    el: ".vb-swiper .swiper-pagination",
+    type: "fraction",
+  },
+});
+
+const $vbSwiperPlay = document.querySelector(".vb-swiper .swiper-button-play");
+const $vbSwiperStop = document.querySelector(".vb-swiper .swiper-button-stop");
+$vbSwiperPlay.style.display = "none";
+$vbSwiperPlay.addEventListener("click", () => {
+  vbSwiper.autoplay.start();
+  $vbSwiperStop.style.display = "";
+  $vbSwiperPlay.style.display = "none";
+});
+$vbSwiperStop.addEventListener("click", () => {
+  vbSwiper.autoplay.stop();
+  $vbSwiperStop.style.display = "none";
+  $vbSwiperPlay.style.display = "";
+});
+
+//팝업레이어 슬라이드
+const popupSwiper = new Swiper(".popup-swiper .swiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  speed: 700,
+  loop: true,
+  autoHeight: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+
+  navigation: {
+    nextEl: ".popup-swiper .swiper-button-next",
+    prevEl: ".popup-swiper .swiper-button-prev",
+  },
+  pagination: {
+    el: ".popup-swiper .swiper-pagination",
+    type: "fraction",
+  },
+});
+const $popupSwiperPlay = document.querySelector(
+  ".popup-swiper .swiper-button-play"
+);
+const $popupSwiperStop = document.querySelector(
+  ".popup-swiper .swiper-button-stop"
+);
+$popupSwiperPlay.style.display = "none";
+$popupSwiperPlay.addEventListener("click", () => {
+  popupSwiper.autoplay.start();
+  $popupSwiperStop.style.display = "";
+  $popupSwiperPlay.style.display = "none";
+});
+$popupSwiperStop.addEventListener("click", () => {
+  popupSwiper.autoplay.stop();
+  $popupSwiperStop.style.display = "none";
+  $popupSwiperPlay.style.display = "";
 });

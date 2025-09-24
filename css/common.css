@@ -617,11 +617,17 @@ caption {
 .icon.ico-popup-close {
   background-image: url(../images/ico_close.svg);
 }
+.icon.ico-popup-close-white {
+  background-image: url(../images/ico_close-white.svg);
+}
 .icon.ico-post {
   background-image: url(../images/ico_post.svg);
 }
 .icon.ico-toggle {
   background-image: url(../images/ico_arrow-down.svg);
+}
+.icon.ico-toggle-white {
+  background-image: url(../images/ico_toggle-white.svg);
 }
 .icon.ico-search {
   background-image: url(../images/ico_search.svg);
@@ -664,7 +670,7 @@ caption {
 }
 @media (max-width: 767px) {
   body {
-    font-size: var(--kpost-fs-sm);
+    font-size: var(--kpost-fs-md);
   }
   .pc-only {
     display: none !important;
@@ -1231,6 +1237,12 @@ a {
   padding: 0.4rem;
   transition: var(--kpost-transition-base);
 }
+@media (max-width: 767px) {
+  .tab.line .btn-tab {
+    min-width: 5.2rem;
+  }
+}
+
 .tab.line .btn-tab:hover {
   background-color: var(--kpost-primary-5);
 }
@@ -1265,7 +1277,67 @@ a {
   justify-content: flex-start;
   flex-direction: column;
 }
+/* 체크박스 */
 
+input[type="checkbox"] {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.form-check input[type="checkbox"] ~ label:before,
+.form-check input[type="checkbox"] ~ label:after {
+  display: flex;
+  content: "";
+  transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
+}
+
+.form-check input[type="checkbox"] ~ label {
+  position: relative;
+  display: inline-flex;
+  gap: 0.8rem;
+  font-size: 1.7rem;
+}
+
+.form-check input[type="checkbox"] ~ label:before {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.3rem;
+  z-index: 3;
+  background-color: var(--kpost-white);
+  border: 0.1rem solid var(--kpost-gray-50);
+}
+
+.form-check input[type="checkbox"] ~ label:before {
+  border-radius: var(--kpost-rd-2);
+}
+.form-check input[type="checkbox"]:checked ~ label:before {
+  background-color: var(--kpost-primary-60);
+  border-color: var(--kpost-primary-60);
+}
+
+.form-check input[type="checkbox"] ~ label:after {
+  position: absolute;
+  top: 0.3rem;
+  left: 0rem;
+  z-index: 4;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--kpost-rd-2);
+}
+
+.form-check input[type="checkbox"]:checked ~ label:after {
+  background-color: var(--kpost-primary-60);
+  background: url(../images/ico_checked.svg) no-repeat center center;
+}
 /* swiper */
 .swiper-indicator {
   display: flex;
