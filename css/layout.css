@@ -1800,6 +1800,11 @@
 }
 @media (max-width: 768px) {
   .tab_ps_list .structured-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .tab_ps_list .structured-list {
     grid-template-columns: 1fr;
   }
 }
