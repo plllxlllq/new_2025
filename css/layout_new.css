@@ -1947,3 +1947,36 @@
 .scroll_ap_no::-webkit-scrollbar {
   display: none;
 }
+
+/* 기존 서브 틀어짐 방지 */
+#container.s_wrap .s_ctn .left_wrap li a {
+  transition: unset;
+}
+#container.s_wrap .s_ctn .ctn_wrap .now_location {
+  top: 70.5px !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+#wrap[class*="scroll"] #container.s_wrap .s_ctn .ctn_wrap .now_location {
+  position: relative;
+}
+#wrap.scroll-up #container.s_wrap .s_ctn .ctn_wrap .now_location {
+  transform: translateY(0%);
+}
+#wrap.scroll-down #container.s_wrap .s_ctn .ctn_wrap .now_location {
+  transform: translateY(-100%);
+}
+.seedbbs_pagination a,
+.seedbbs_pagination strong,
+.seedbbs_pagination span {
+  padding: 0 8px;
+}
+.slogan_dw button span {
+  line-height: 35px;
+}
+.seed_bbs_box input[type="text"],
+.seed_bbs_box input[type="password"],
+.seed_bbs_box input[type="submit"] {
+  min-height: 32px;
+}
