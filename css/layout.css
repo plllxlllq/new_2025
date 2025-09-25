@@ -1086,11 +1086,13 @@
 }
 @media (max-width: 1024px) {
   .main-vb-wrap .main-d-links .btn {
-    min-width: calc(100% / 2 - var(--kpost-gap-3));
     white-space: normal;
   }
 }
 @media (max-width: 767px) {
+  .main-vb-wrap .main-d-links .btn {
+    min-width: calc(100% / 2 - var(--kpost-gap-3));
+  }
   .main-vb-wrap .main-d-links .btn span {
     font-size: var(--kpost-fs-sm);
     line-height: 1.25;
@@ -1107,7 +1109,7 @@
   width: 41rem;
   background: var(--kpost-white);
 }
-@media (max-width: 1024px) {
+@media (max-width: 1124px) {
   .main-vb-wrap .d-fix {
     width: 100%;
   }

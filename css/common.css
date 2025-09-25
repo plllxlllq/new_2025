@@ -247,10 +247,10 @@
   --kpost-transition-fade: opacity 0.4s linear;
   --kpost-transition-collapse: max-height 0.4s ease;
   --kpost-transition-collapse-width: width 0.4s ease;
-  --kpost-contents-size: 1280px;
+  --kpost-contents-size: 1328px;
   --kpost-contents-padding-x-pc: 24px;
   --kpost-contents-padding-x-mo: 16px;
-  --kpost-contents-wrap-size: 1280px;
+  --kpost-contents-wrap-size: 1328px;
   --kpost-box-shadow-outline: 0 0 0 0.4rem var(--kpost-primary);
   --kpost-box-shadow-outline-inset: inset 0 0 0 0.2rem var(--kpost-primary);
   --kpost-font-underline-offset: 0.3rem;
@@ -1235,13 +1235,13 @@ a {
 }
 
 .tab.line .btn-tab {
-  min-width: 6.4rem;
+  min-width: 5.2rem;
   padding: 0.4rem;
   transition: var(--kpost-transition-base);
 }
 @media (max-width: 767px) {
   .tab.line .btn-tab {
-    min-width: 5.2rem;
+    min-width: 4.8rem;
   }
 }
 
@@ -1427,6 +1427,7 @@ input[type="checkbox"] {
 }
 
 .swiper-pagination.swiper-pagination-fraction .swiper-pagination-current {
+  color: var(--kpost-primary);
   font-weight: 700;
 }
 
