@@ -973,7 +973,7 @@ window.addEventListener("resize", () => {
 const vbSwiper = new Swiper(".vb-swiper .swiper", {
   slidesPerView: 1,
   spaceBetween: 16,
-  speed: 700,
+  speed: 800,
   loop: true,
   breakpoints: {
     100: {
@@ -987,7 +987,7 @@ const vbSwiper = new Swiper(".vb-swiper .swiper", {
     },
   },
   autoplay: {
-    delay: 2500,
+    delay: 2900,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
   },
@@ -1028,7 +1028,6 @@ const popupSwiper = new Swiper(".popup-swiper .swiper", {
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
   },
-
   navigation: {
     nextEl: ".popup-swiper .swiper-button-next",
     prevEl: ".popup-swiper .swiper-button-prev",
