@@ -910,9 +910,11 @@ const goTopBtn = () => {
 // mainPopuplayer
 const mainPopuplayer = () => {
   const popup = document.querySelector(".layer-popup");
+  const popupin = document.querySelector(".layer-popup .inner");
+  const popoutfocus = document.querySelector("#skipNavi .slip_link");
   const body = document.body;
   const todayClose = document.getElementById("todayClose");
-  const closeBtn = document.querySelector(".btn.sm"); // 팝업 닫기 버튼
+  const closeBtn = document.querySelector(".btn-popup-close"); // 팝업 닫기 버튼
   const popupKey = "popupClosedDate";
 
   if (!popup) return; // 팝업이 없으면 실행 중단
@@ -933,18 +935,28 @@ const mainPopuplayer = () => {
   popup.classList.add("on");
   body.classList.add("haspop");
 
+  if (popup.classList.contains("on")) {
+    popupin.setAttribute("tabindex", 0);
+    document.getElementById("wrap")?.setAttribute("inert", "");
+    common.focusTrap(popup);
+  } else {
+    mobileGnb.style.display = "none";
+    popoutfocus.focus;
+  }
+
   // 닫기 버튼 클릭 이벤트
   closeBtn?.addEventListener("click", function () {
     // 오늘 하루 닫기 체크되었으면 저장
     if (todayClose.checked) {
       localStorage.setItem(popupKey, today);
     }
-
+    document.getElementById("wrap")?.removeAttribute("inert");
     popup.classList.add("off");
     body.classList.remove("haspop");
     popup.style.display = "none";
   });
 };
+
 // 초기 이벤트
 window.addEventListener("DOMContentLoaded", () => {
   // 윈도우 사이즈 체크
