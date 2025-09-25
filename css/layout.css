@@ -249,7 +249,7 @@
   position: relative;
   height: var(--kpost-number-17);
   color: var(--kpost-gray-80);
-  padding: 0 var(--kpost-padding-6);
+  padding: 0 var(--kpost-padding-8);
   transition: var(--kpost-transition-base);
 }
 .main-menu .gnb-menu .gnb-main-trigger,
@@ -905,6 +905,12 @@
 
 /* ------------------------------------------------- main -------------------------------------------------  */
 /* main-basic */
+.main-container {
+  background-image: url(../images/main_back_deco.png),
+    url(../images/main_back_deco.png);
+  background-position: -8% 360px, 110% -290px;
+  background-repeat: no-repeat;
+}
 .main-sec-t {
   margin-top: var(--kpost-gap-11);
 }
@@ -923,7 +929,7 @@
   font-size: var(--kpost-fs-hd-lg);
   letter-spacing: var(--kpost-letter-spacing-1);
 }
-
+.main-tit-wrap h2.tit-s,
 .main-tit-wrap h3.tit {
   font-size: var(--kpost-fs-hd-md);
   letter-spacing: var(--kpost-letter-spacing-1);
@@ -953,11 +959,11 @@
 
 /* main-visual */
 .main-vb-wrap {
-  margin-top: var(--kpost-gap-9);
+  padding-top: var(--kpost-gap-9);
 }
 @media (max-width: 767px) {
   .main-vb-wrap {
-    margin-top: var(--kpost-gap-5);
+    padding-top: var(--kpost-gap-5);
   }
 }
 .main-vb-wrap .inner {
@@ -1099,6 +1105,7 @@
 .main-vb-wrap .d-fix {
   flex: unset;
   width: 41rem;
+  background: var(--kpost-white);
 }
 @media (max-width: 1024px) {
   .main-vb-wrap .d-fix {
@@ -1364,12 +1371,20 @@
 }
 
 /* -------------------- 소식 --------------------  */
+.main-noti-sec {
+  background-image: url(../images/main_back_deco.png);
+  background-position: 110% -4rem;
+  background-repeat: no-repeat;
+}
 .main-noti-wrap > div {
   width: calc(100% / 2 - var(--kpost-gap-7));
   max-width: 50%;
 }
 .main-noti-wrap > div > div:not(.main-tit-wrap) {
   height: 39rem;
+}
+.main-noti-wrap .main-board .in {
+  background: var(--kpost-white);
 }
 @media (max-width: 1024px) {
   .main-box-responsive.main-noti-wrap {
@@ -1646,6 +1661,7 @@
 .tab_ps_list > .tab > .main-tit-wrap {
   position: relative;
 }
+
 .tab_ps_list .main-tit-wrap h3 {
   display: flex;
   justify-content: space-between;

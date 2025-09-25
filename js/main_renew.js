@@ -675,14 +675,14 @@ const basic_tab = {
           const selectedTabPanel = document.getElementById(control);
 
           // aria 설정
-          tab.setAttribute("aria-checked", "false");
+          tab.setAttribute("aria-selected", "false");
           tab.setAttribute("role", "tab");
           selectedTabPanel.setAttribute("role", "tabpanel");
 
           // 초기 active 설정
           if (tab.classList.contains("active")) {
             if (!tab.querySelector("a .sr-only")) {
-              tab.setAttribute("aria-checked", "true");
+              tab.setAttribute("aria-selected", "true");
               tab.querySelector("button").append(this.createAccText()); // 초점이 버튼이라 aria-selected 대체 텍스트 필요
             }
           }
@@ -700,7 +700,7 @@ const basic_tab = {
 
             tab.classList.add("active");
             tab.querySelector("button").append(this.createAccText());
-            tab.setAttribute("aria-checked", "true");
+            tab.setAttribute("aria-selected", "true");
             selectedTabPanel.classList.add("active");
           });
 
@@ -722,7 +722,7 @@ const basic_tab = {
   resetTabs(closestTabs, closestTabPanels) {
     closestTabs.forEach((tab) => {
       tab.classList.remove("active");
-      tab.setAttribute("aria-checked", "false");
+      tab.setAttribute("aria-selected", "false");
       // 대체 텍스트 삭제
       const srOnly = tab.querySelector(".sr-only");
       if (srOnly) tab.querySelector("button").removeChild(srOnly);
